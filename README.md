@@ -1,24 +1,3 @@
-# blog-homepage
+## 基于Vue的material风格主页
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+主页写成啥样是次要，主要是想做个material风格的页面，提高vue的水平。
