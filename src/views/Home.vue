@@ -2,15 +2,26 @@
   <div class="home">
     <v-app-bar color="rgba(0,0,0,0.3)" dark>
       <v-app-bar-nav-icon
-      
-      @click="mini=!mini"
+      class="menubtn"
+      @click="inorout"
       expand-on-hover
       ></v-app-bar-nav-icon>
 
-      <v-toolbar-title>深蓝的小站</v-toolbar-title>
+
+      <v-toolbar-title>
+        <v-btn text large>
+          <span class="btnrt">深蓝的小站</span>
+        </v-btn>
+      </v-toolbar-title>
 
       <v-spacer></v-spacer>
 
+      <v-btn text large><span class="btnrt">博客</span></v-btn>
+      <v-btn text large><span class="btnrt">片语</span></v-btn>
+      <v-btn text large><span class="btnrt">云盘</span></v-btn>
+      <v-btn text large><span class="btnrt">开发</span></v-btn>
+      <v-btn text large><span class="btnrt">友链</span></v-btn>
+      <v-btn text large><span class="btnrt">关于</span></v-btn>
       <v-btn icon>
         <v-icon>mdi-heart</v-icon>
       </v-btn>
@@ -34,22 +45,14 @@
       </v-menu>
     </v-app-bar>
 
-    <v-card height="100%" width="25%" class="mx-auto" min-width="160px"
+    <v-card height="100%" width="20%" min-width="160px" class="mx-auto"
       color="rgba(0,0,0,.0)" outlined>
-      <v-navigation-drawer  dark
+      <v-navigation-drawer dark
         v-model="slide"
         :mini-variant.sync="mini"
+        :expand-on-hover="slide"
         color="rgba(0,0,0,.3)">
-        <v-list-item>
-          <v-list-item-content>
-            
-            <v-list-item-title class="title"><v-icon>mdi-dots-vertical</v-icon>
-            菜单栏</v-list-item-title>
-            <v-list-item-subtitle>你想去哪？</v-list-item-subtitle>
-          </v-list-item-content>
-        </v-list-item>
-
-        <v-divider></v-divider>
+        
 
         <v-list  nav>
           <v-list-item v-for="item in items" :key="item.title" link
@@ -86,6 +89,7 @@ export default {
     methods:{
       inorout(){
         this.slide = !this.slide
+
       }
     }
 };
@@ -93,11 +97,18 @@ export default {
 
 <style lang="less">
 .home {
-  height: 1080px;
+  height: 1100px;
   background: url(http://127.1:8887/pc/lightblue.jpg);
   background-size: 100% 100%;
 }
 .listicon{
   margin-right: 1rem;
+}
+.menubtn{
+  margin-right: 2rem;
+}
+.btnrt{
+  font-size: 1.2rem;
+  font-family: 'Segoe UI';
 }
 </style>
