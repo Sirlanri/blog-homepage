@@ -93,18 +93,7 @@
         <router-view ></router-view>
       </v-col>
       <v-col col="2">
-        <v-btn large class="rightbtn">
-            <span class="btnrt">enh</span>
-        </v-btn><v-spacer></v-spacer>
-        <v-btn large class="rightbtn">
-            <span class="btnrt">enh</span>
-        </v-btn><v-spacer></v-spacer>
-        <v-btn large class="rightbtn">
-            <span class="btnrt">enh</span>
-        </v-btn>
-        
 
-        
       </v-col>
 
     </v-row>

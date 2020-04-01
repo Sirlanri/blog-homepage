@@ -10,12 +10,10 @@
           <v-card outlined color="rgba(255,255,255,0.5)" raised>
             <v-card-text class="font">
               <h3>博客</h3> 
-              <del>技术流的笔记本</del>  <del>记录分享生活</del> <br> 
+              <del>技术流的笔记本</del>  <del>分享生活</del> <del>干货满满</del><br> 
               沙雕日常 √
               <br>
-              <p>使用WordPress搭建。</p>
-              
-              
+              <p>使用WordPress搭建</p>
             </v-card-text>
             <v-card-actions>
               <v-row :justify="center" :align="center" >
@@ -26,28 +24,59 @@
                   </v-btn>
                 </v-col>
                 <v-col cols="3"></v-col>
-                
               </v-row>
-              
             </v-card-actions>
           </v-card>
         </v-col>
 
-        <v-col cols="4" :align="center">
-          <v-card outlined>
-            <v-card-text>
-              <p text--primary>GitHub</p>
+        <v-col cols="4" >
+          <v-card outlined color="rgba(255,255,255,0.5)" raised>
+            <v-card-text class="font">
+              <h3>GitHub</h3> 
+              <del>全球最大的同性交友网站</del><br> 
+              注册于2017年，但最近才写项目
+              <br>
+              <p>欢迎大佬来fo</p>
             </v-card-text>
+            <v-card-actions>
+              <v-row :justify="center" :align="center" >
+                <v-col cols="3"></v-col>
+                <v-col style="padding-top:0">
+                  <v-btn large color="#E3F2FD" block>
+                    <span class="btnrt2">Visit</span>
+                  </v-btn>
+                </v-col>
+                <v-col cols="3"></v-col>
+              </v-row>
+            </v-card-actions>
           </v-card>
         </v-col>
 
-        <v-col cols="4" :align="center">
-          <v-card outlined>
-            <v-card-text>
-              <p text--primary>Email</p>
+        <v-col cols="4" >
+          <v-card outlined color="rgba(255,255,255,0.5)" raised>
+            <v-card-text class="font">
+              <h3>Twitter</h3> 
+              曾经的回忆 <br> 
+              认识了很多朋友
+              
+              <br>
+              <p>于2019年离开</p>
             </v-card-text>
+            <v-card-actions>
+              <v-row :justify="center" :align="center" >
+                <v-col cols="3"></v-col>
+                <v-col style="padding-top:0">
+                  <v-btn large color="#E3F2FD" block disabled>
+                    <span class="btnrt2">Visit</span>
+                  </v-btn>
+                </v-col>
+                <v-col cols="3"></v-col>
+              </v-row>
+            </v-card-actions>
           </v-card>
         </v-col>
+
+        
 
       </v-row>
     </v-contianer>
