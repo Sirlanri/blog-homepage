@@ -28,18 +28,21 @@ const routes = [
             name:'sentences',
             component:()=>import('../components/Sentences.vue')
           },
-        
           {
             path:'/dev',
             name:'dev',
             component:()=>import('../components/Development.vue')
           },
-        
           {
             path:'/friends',
             name:'friends',
             component:()=>import('../components/Friends.vue')
-          }
+          },
+          {
+            path:'/about',
+            name:'about',
+            component:()=>import('../components/About.vue')
+          },
         ]
       },
     ]

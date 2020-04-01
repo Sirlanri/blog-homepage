@@ -6,7 +6,7 @@
         <v-app-bar-nav-icon class="menubtn" @click="inorout" expand-on-hover></v-app-bar-nav-icon>
 
         <v-toolbar-title>
-          <v-btn text large>
+          <v-btn text large @click="jump(1)">
             <v-icon>mdi-home</v-icon>
             <span class="btnrt">深蓝的小站</span>
           </v-btn>
@@ -15,19 +15,19 @@
         <v-spacer></v-spacer>
 
         
-        <v-btn text large>
+        <v-btn text large @click="jump(2)">
           <span class="btnrt">片语</span>
         </v-btn>
-        <v-btn text large>
-          <span class="btnrt">云盘</span>
-        </v-btn>
-        <v-btn text large>
+        <v-btn text large @click="jump(3)">
           <span class="btnrt">开发</span>
         </v-btn>
-        <v-btn text large>
+        <v-btn text large @click="jump(9)">
+          <span class="btnrt">资源</span>
+        </v-btn>
+        <v-btn text large @click="jump(4)">
           <span class="btnrt">友链</span>
         </v-btn>
-        <v-btn text large>
+        <v-btn text large  @click="jump(5)">
           <span class="btnrt">关于</span>
         </v-btn>
         <v-btn icon>
@@ -74,7 +74,8 @@
             color="rgba(0,0,0,.3)"
           >
             <v-list nav>
-              <v-list-item v-for="item in items" :key="item.title" link>
+              <v-list-item v-for="item in items" :key="item.title" link 
+              @click="jump(item.num)">
                 <v-list-item-icon>
                   <v-icon class="listicon">{{ item.icon }}</v-icon>
                 </v-list-item-icon>
@@ -108,9 +109,11 @@ export default {
       slide: true,
       mini: true,
       items: [
-        { title: "博客", icon: "mdi-view-dashboard" },
-        { title: "云盘", icon: "mdi-image" },
-        { title: "开发", icon: "mdi-help-box" }
+        { title: "博客", icon: "mdi-post", num:6},
+        { title: "云盘", icon: "mdi-cloud-outline", num:7 },
+        //{ title: "开发", icon: "mdi-xml" },
+        { title: "邮箱", icon: "mdi-email-variant", num:8 },
+
       ]
     };
   },
@@ -126,14 +129,27 @@ export default {
         case 2:
           this.$router.push({path:'/sentences'})
           break;
-        case 2:
-          this.$router.push({path:'/sentences'})
+        case 3:
+          this.$router.push({path:'/dev'})
           break;
-        case 2:
-          this.$router.push({path:'/sentences'})
+        case 4:
+          this.$router.push({path:'/friends'})
           break;
-        case 2:
-          this.$router.push({path:'/sentences'})
+        case 5:
+          this.$router.push({path:'/about'})
+          break;
+        //在新窗口打开的页面
+        case 6:
+          window.open('https://blog.ri-co.cn')
+          break;
+        case 7:
+          window.open('https://cloud.ri-co.cn')
+          break;
+        case 8:
+          window.open('https://qiye.aliyun.com/')
+          break;
+        case 9:
+          window.open('https://cloud.ri-co.cn/s/2kp9zw58Gi9PAR4')
           break;
       
         default:

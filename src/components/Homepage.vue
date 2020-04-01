@@ -1,9 +1,27 @@
 <template>
   <div>
     <v-contianer >
-      <v-row style="height:600px;" >
-      </v-row>
+      <v-row style="height:600px;" 
+        :align="center" :justify="center" 
+      >
+        
+        <v-col cols="12" class="font1" >
+          <p>Hi~</p> 
+          <p>我是一个爱着数字媒体玩着前端还想学后端的家伙</p>
+          <p>喜欢做梦，最近的梦是成为全沾工程师</p>
+          <br>
+          芜湖~ 向着全栈，起飞！
+        </v-col>
+        
+        
+        
+        
+        
+        
+        
 
+      </v-row>
+      
       <v-row :align="center" :justify="center" >
 
         <v-col cols="4" >
@@ -79,6 +97,10 @@
         
 
       </v-row>
+      <v-bottom-navigation style="box-shadow: none;margin-top: 0.6rem;"
+       background-color="rgba(0,0,0,0.0)">
+        <p>鲁ICP备20005309号-1 | 鲁公网安备37011302000267号</p>
+      </v-bottom-navigation>
     </v-contianer>
   </div>
 </template>
@@ -125,4 +147,18 @@ export default {
     font-size: 18px;
   }
 }
+.font1{
+  padding-top: 17%;
+  padding-left: 5%;
+  color: #282828;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 2.5rem;
+  p{
+    font-size: 24px;
+    
+  }
+}
+
 </style>
