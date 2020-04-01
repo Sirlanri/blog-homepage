@@ -1,6 +1,7 @@
 <template>
   <div>
     <funcbar></funcbar>
+    
   </div>
 </template>
 
