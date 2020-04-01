@@ -89,10 +89,10 @@
         </v-card>
       </v-col>
 
-      <v-col cols="7">
+      <v-col cols="8">
         <router-view ></router-view>
       </v-col>
-      <v-col col="3">
+      <v-col col="2">
         <v-btn large class="rightbtn">
             <span class="btnrt">enh</span>
         </v-btn><v-spacer></v-spacer>

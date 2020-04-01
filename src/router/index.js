@@ -20,8 +20,12 @@ const routes = [
           {
             path:'',
             name:'homepage',
-            component:()=>import('../components/Homepage.vue'),
-          }
+            components:{
+              default:()=>import('../components/Homepage.vue'),
+            },
+          },
+          
+
         ]
       },
       
