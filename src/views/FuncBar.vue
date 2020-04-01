@@ -1,7 +1,8 @@
 <template>
   <div class="home">
     <v-row>
-      <v-app-bar color="rgba(0,0,0,0.3)" dark>
+        <v-col cols="12" style="padding:0" >
+            <v-app-bar color="rgba(0,0,0,0.3)" dark>
         <v-app-bar-nav-icon class="menubtn" @click="inorout" expand-on-hover></v-app-bar-nav-icon>
 
         <v-toolbar-title>
@@ -52,12 +53,14 @@
           </v-list>
         </v-menu>
       </v-app-bar>
+        </v-col>
+      
     </v-row>
 
-    <v-row class="celan">
-      <v-col cols="2">
+    <v-row >
+      <v-col cols="2" style="padding-top:0" >
         <v-card
-          height="100%"
+          height="1000px"
           width="20%"
           min-width="160px"
           class="mx-auto"
@@ -85,7 +88,25 @@
           </v-navigation-drawer>
         </v-card>
       </v-col>
-      
+
+      <v-col cols="7">
+        <router-view ></router-view>
+      </v-col>
+      <v-col col="3">
+        <v-btn large class="rightbtn">
+            <span class="btnrt">enh</span>
+        </v-btn><v-spacer></v-spacer>
+        <v-btn large class="rightbtn">
+            <span class="btnrt">enh</span>
+        </v-btn><v-spacer></v-spacer>
+        <v-btn large class="rightbtn">
+            <span class="btnrt">enh</span>
+        </v-btn>
+        
+
+        
+      </v-col>
+
     </v-row>
   </div>
 </template>
@@ -129,7 +150,7 @@ export default {
   font-size: 1.2rem;
   font-family: "Segoe UI";
 }
-.celan{
-    margin-top: 0;
+.rightbtn{
+  margin-top: 2rem;
 }
 </style>

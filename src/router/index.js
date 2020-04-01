@@ -11,10 +11,21 @@ const routes = [
     component: Home,
     children:[
       {
-        path:'funcbar',
+        //默认的子路由
+        path:'',
         name:'funcbar',
-        component:()=>import('../views/FuncBar.vue')
+        component:()=>import('../views/FuncBar.vue'),
+        
+        children:[
+          {
+            path:'',
+            name:'homepage',
+            component:()=>import('../components/Homepage.vue'),
+          }
+        ]
       },
+      
+      
     ]
   },
   

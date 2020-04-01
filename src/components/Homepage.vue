@@ -1,16 +1,15 @@
 <template>
   <div>
-    <router-view></router-view>
-    
+    主页的组件
   </div>
 </template>
 
 <script>
 export default {
-  
-};
+
+}
 </script>
 
-<style lang="less">
+<style>
 
 </style>
