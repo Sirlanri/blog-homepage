@@ -7,15 +7,14 @@
 
         <v-toolbar-title>
           <v-btn text large>
+            <v-icon>mdi-home</v-icon>
             <span class="btnrt">深蓝的小站</span>
           </v-btn>
         </v-toolbar-title>
 
         <v-spacer></v-spacer>
 
-        <v-btn text large>
-          <span class="btnrt">博客</span>
-        </v-btn>
+        
         <v-btn text large>
           <span class="btnrt">片语</span>
         </v-btn>
@@ -118,6 +117,28 @@ export default {
   methods: {
     inorout() {
       this.slide = !this.slide;
+    },
+    jump(num){
+      switch (num) {
+        case 1:
+          this.$router.push({path:'/'})
+          break;
+        case 2:
+          this.$router.push({path:'/sentences'})
+          break;
+        case 2:
+          this.$router.push({path:'/sentences'})
+          break;
+        case 2:
+          this.$router.push({path:'/sentences'})
+          break;
+        case 2:
+          this.$router.push({path:'/sentences'})
+          break;
+      
+        default:
+          break;
+      }
     }
   }
 };

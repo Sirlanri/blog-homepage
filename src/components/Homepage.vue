@@ -2,8 +2,8 @@
   <div>
     <v-contianer >
       <v-row style="height:600px;" >
-
       </v-row>
+
       <v-row :align="center" :justify="center" >
 
         <v-col cols="4" >
@@ -19,7 +19,7 @@
               <v-row :justify="center" :align="center" >
                 <v-col cols="3"></v-col>
                 <v-col style="padding-top:0">
-                  <v-btn large color="#E3F2FD" block>
+                  <v-btn large color="#E3F2FD" block @click="goto(1)">
                     <span class="btnrt2">Visit</span>
                   </v-btn>
                 </v-col>
@@ -42,7 +42,7 @@
               <v-row :justify="center" :align="center" >
                 <v-col cols="3"></v-col>
                 <v-col style="padding-top:0">
-                  <v-btn large color="#E3F2FD" block>
+                  <v-btn large color="#E3F2FD" block  @click="goto(2)">
                     <span class="btnrt2">Visit</span>
                   </v-btn>
                 </v-col>
@@ -87,6 +87,20 @@
 export default {
   data() {
     return {};
+  },
+  methods:{
+    goto(num){
+      switch (num) {
+        case 1:
+          window.open('https://blog.ri-co.cn')
+          break;
+        case 2:
+          window.open('https://github.com/Sirlanri')
+          break;
+        default:
+          break;
+      }
+    }
   }
 };
 </script>

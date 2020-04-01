@@ -15,7 +15,6 @@ const routes = [
         path:'',
         name:'funcbar',
         component:()=>import('../views/FuncBar.vue'),
-        
         children:[
           {
             path:'',
@@ -24,14 +23,29 @@ const routes = [
               default:()=>import('../components/Homepage.vue'),
             },
           },
-          
-
+          {
+            path:'/sentences',
+            name:'sentences',
+            component:()=>import('../components/Sentences.vue')
+          },
+        
+          {
+            path:'/dev',
+            name:'dev',
+            component:()=>import('../components/Development.vue')
+          },
+        
+          {
+            path:'/friends',
+            name:'friends',
+            component:()=>import('../components/Friends.vue')
+          }
         ]
       },
-      
-      
     ]
   },
+
+  
   
 ]
 
