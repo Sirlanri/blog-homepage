@@ -1,8 +1,8 @@
 <template>
   <div>
-    <v-contianer >
+    <v-container>
       <v-row style="height:600px;" 
-        :align="center" :justify="center" 
+        align="center" justify="center" 
       >
         
         <v-col cols="12" class="font1" >
@@ -22,7 +22,7 @@
 
       </v-row>
       
-      <v-row :align="center" :justify="center" >
+      <v-row >
 
         <v-col cols="4" >
           <v-card outlined color="rgba(255,255,255,0.5)" raised>
@@ -34,7 +34,7 @@
               <p>使用WordPress搭建</p>
             </v-card-text>
             <v-card-actions>
-              <v-row :justify="center" :align="center" >
+              <v-row  >
                 <v-col cols="3"></v-col>
                 <v-col style="padding-top:0">
                   <v-btn large color="#E3F2FD" block @click="goto(1)">
@@ -57,7 +57,7 @@
               <p>欢迎大佬来fo</p>
             </v-card-text>
             <v-card-actions>
-              <v-row :justify="center" :align="center" >
+              <v-row >
                 <v-col cols="3"></v-col>
                 <v-col style="padding-top:0">
                   <v-btn large color="#E3F2FD" block  @click="goto(2)">
@@ -81,7 +81,7 @@
               <p>于2019年离开</p>
             </v-card-text>
             <v-card-actions>
-              <v-row :justify="center" :align="center" >
+              <v-row>
                 <v-col cols="3"></v-col>
                 <v-col style="padding-top:0">
                   <v-btn large color="#E3F2FD" block disabled>
@@ -101,7 +101,7 @@
        background-color="rgba(0,0,0,0.0)">
         <p>鲁ICP备20005309号-1 | 鲁公网安备37011302000267号</p>
       </v-bottom-navigation>
-    </v-contianer>
+    </v-container>
   </div>
 </template>
 
@@ -148,8 +148,7 @@ export default {
   }
 }
 .font1{
-  padding-top: 17%;
-  padding-left: 5%;
+
   color: #282828;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 28px;
