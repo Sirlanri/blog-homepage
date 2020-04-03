@@ -1,5 +1,6 @@
 <template>
   <div>
+    
     <router-view></router-view>
     
   </div>
@@ -11,6 +12,6 @@ export default {
 };
 </script>
 
-<style lang="less">
+<style lang="sass">
 
 </style>

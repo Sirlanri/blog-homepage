@@ -5,15 +5,17 @@
         align="center" justify="center" 
       >
         
-        <v-col cols="12" class="font1" >
-          <p>Hi~</p> 
-          <p>我是一个爱着数字媒体玩着前端还想学后端的家伙</p>
-          <p>喜欢做梦，最近的梦是成为全沾工程师</p>
-          <br>
-          芜湖~ 向着全栈，起飞！
-        </v-col>
+
+        <div>
+          <div class="d-lg-none">hide on screens wider than lg</div>
+          <div class="d-none d-lg-block">hide on screens smaller than lg</div>
+        </div>
         
-        
+        <div>
+          <div class="d-print-none">Screen Only (Hide on print only)</div>
+          <div class="d-none d-print-block">Print Only (Hide on screen only)</div>
+          <div class="d-none d-lg-block d-print-block">Hide up to large on screen, but always show on print</div>
+        </div>
         
         
         

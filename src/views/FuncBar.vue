@@ -160,7 +160,7 @@ export default {
 };
 </script>
 
-<style lang="less">
+<style >
 .home {
   height: 1100px;
   background: url(http://127.1:8887/pc/lightblue.jpg);
