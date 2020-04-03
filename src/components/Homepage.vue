@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-container>
-      <v-row style="height:600px;" 
+      <v-row style="height:550px;" 
         align="center" justify="center" 
       >
         
@@ -97,7 +97,7 @@
         
 
       </v-row>
-      <v-bottom-navigation style="box-shadow: none;margin-top: 0.6rem;"
+      <v-bottom-navigation style="box-shadow: none;margin-top: 1.5rem; "
        background-color="rgba(0,0,0,0.0)">
         <p>鲁ICP备20005309号-1 | 鲁公网安备37011302000267号</p>
       </v-bottom-navigation>
@@ -148,7 +148,8 @@ export default {
   }
 }
 .font1{
-
+  padding-top: 15%;
+  padding-left: 5%;
   color: #282828;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 28px;

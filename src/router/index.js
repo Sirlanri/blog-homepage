@@ -7,13 +7,13 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    name: 'Home',
+    name: '',
     component: Home,
     children:[
       {
         //默认的子路由
         path:'',
-        name:'funcbar',
+        name:'',
         component:()=>import('../views/FuncBar.vue'),
         children:[
           {

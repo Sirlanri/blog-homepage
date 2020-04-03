@@ -3,7 +3,9 @@
     <v-row>
         <v-col cols="12" style="padding:0" >
             <v-app-bar color="rgba(0,0,0,0.3)" dark>
-        <v-app-bar-nav-icon class="menubtn" @click="inorout" expand-on-hover></v-app-bar-nav-icon>
+        <v-app-bar-nav-icon class="menubtn" @click="inorout" 
+        expand-on-hover style="margin-left:0"
+        ></v-app-bar-nav-icon>
 
         <v-toolbar-title>
           <v-btn text large @click="jump(1)">
@@ -34,23 +36,11 @@
           <v-icon>mdi-heart</v-icon>
         </v-btn>
 
-        <v-btn icon>
+        <v-btn icon style="margin-right:0">
           <v-icon>mdi-magnify</v-icon>
         </v-btn>
 
-        <v-menu left bottom>
-          <template v-slot:activator="{ on }">
-            <v-btn icon v-on="on">
-              <v-icon>mdi-dots-vertical</v-icon>
-            </v-btn>
-          </template>
-
-          <v-list>
-            <v-list-item v-for="n in 5" :key="n" @click="() => {}">
-              <v-list-item-title>Option {{ n }}</v-list-item-title>
-            </v-list-item>
-          </v-list>
-        </v-menu>
+        
       </v-app-bar>
         </v-col>
       
@@ -62,7 +52,7 @@
           height="1000px"
           width="20%"
           min-width="160px"
-          class="mx-auto"
+          
           color="rgba(0,0,0,.0)"
           outlined
         >
@@ -106,6 +96,7 @@ export default {
   components: {},
   data() {
     return {
+      screenWidth:document.body.clientWidth,
       slide: true,
       mini: true,
       items: [
@@ -117,6 +108,30 @@ export default {
       ]
     };
   },
+  watch:{
+    screenWidth(val){
+        this.screenWidth = val
+        let self = this
+        if (this.screenWidth<=767) {
+             self.peen = false
+            self.seen = true
+        }else{
+           self.peen = true
+            self.seen = false
+        }
+    }
+},
+mounted () {
+    const that = this
+    window.onresize = () => {
+        return (() => {
+            window.screenWidth = document.body.clientWidth
+            that.screenWidth = window.screenWidth
+        })()
+    }
+},
+
+
   methods: {
     inorout() {
       this.slide = !this.slide;
@@ -165,9 +180,7 @@ export default {
   height: 1100px;
   background: url(http://127.1:8887/pc/lightblue.jpg);
   background-size: 100% 100%;
-}
-.listicon {
-  margin-right: 1rem;
+  background-attachment: fixed
 }
 .menubtn {
   margin-right: 2rem;
