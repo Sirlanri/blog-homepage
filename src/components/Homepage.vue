@@ -15,22 +15,6 @@
         </v-col>
       </v-row>
 
-      <!--
-      <v-row style="height:200px;" 
-        align="center" justify="center" no-gutters
-        class="d-flex d-lg-none"
-      >
-      
-        <v-col cols="12"  class="font1-sm" 
-          lg="12" >
-          <p>Hi~</p> 
-          <p>我是一个爱着数字媒体玩着前端还想学后端的家伙</p>
-          <p>喜欢做梦，最近的梦是成为全沾工程师</p>
-          <br>
-          芜湖~ 向着全栈，起飞！
-        </v-col>
-      </v-row>
-      !-->
       
       <v-row >
 
@@ -175,7 +159,7 @@
         
 
       </v-row>
-      <v-bottom-navigation style="box-shadow: none;margin-top: 1.5rem; "
+      <v-bottom-navigation style="box-shadow: none;margin-top: 1.5rem; height:auto; color:#00000070;"
        background-color="rgba(0,0,0,0.0)">
         <p>鲁ICP备20005309号-1 | 鲁公网安备37011302000267号</p>
       </v-bottom-navigation>
