@@ -20,7 +20,7 @@
 
         <v-col cols="4" class="d-lg-flex d-none">
           <v-card outlined color="rgba(255,255,255,0.5)" raised class="card">
-            <v-card-text class="font">
+            <v-card-text class="cardfont">
               <h3>博客</h3> 
               <del>技术流的笔记本</del>  <del>分享生活</del> <del>干货满满</del><br> 
               沙雕日常 √
@@ -43,7 +43,7 @@
 
         <v-col cols="4" class="d-lg-flex d-none">
           <v-card outlined color="rgba(255,255,255,0.5)" raised class="card">
-            <v-card-text class="font">
+            <v-card-text class="cardfont">
               <h3>GitHub</h3> 
               <del>全球最大的同性交友网站</del><br> 
               注册于2017年，但最近才写项目
@@ -66,7 +66,7 @@
 
         <v-col cols="4" class="d-lg-flex d-none">
           <v-card outlined color="rgba(255,255,255,0.5)" raised class="card">
-            <v-card-text class="font">
+            <v-card-text class="cardfont">
               <h3>Twitter</h3> 
               曾经的回忆 <br> 
               认识了很多朋友
@@ -92,7 +92,7 @@
         <v-col class="d-flex-inline d-lg-none">
 
           <v-card outlined color="rgba(255,255,255,0.5)" raised class="card-sm">
-            <v-card-text class="font">
+            <v-card-text class="cardfont">
               <h3>博客</h3> 
               <del>技术流的笔记本</del>  <del>分享生活</del> <del>干货满满</del><br> 
               沙雕日常 √
@@ -113,7 +113,7 @@
           </v-card>
 
           <v-card outlined color="rgba(255,255,255,0.5)" raised class="card-sm">
-            <v-card-text class="font">
+            <v-card-text class="cardfont">
               <h3>GitHub</h3> 
               <del>全球最大的同性交友网站</del><br> 
               注册于2017年，但最近才写项目
@@ -134,7 +134,7 @@
           </v-card>
 
           <v-card outlined color="rgba(255,255,255,0.5)" raised class="card-sm">
-            <v-card-text class="font">
+            <v-card-text class="cardfont">
               <h3>Twitter</h3> 
               曾经的回忆 <br> 
               认识了很多朋友
@@ -159,7 +159,7 @@
         
 
       </v-row>
-      <v-bottom-navigation style="box-shadow: none;margin-top: 1.5rem; height:auto; color:#00000070;"
+      <v-bottom-navigation id="bottom" 
        background-color="rgba(0,0,0,0.0)">
         <p>鲁ICP备20005309号-1 | 鲁公网安备37011302000267号</p>
       </v-bottom-navigation>
@@ -195,19 +195,22 @@ export default {
   font-family: "Segoe UI";
   text-transform: none;
 }
-.font{
+.cardfont{
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 1.3rem;
   line-height: 2.5rem;
   h3{
     font-size: 1.6rem;
     font-weight: 600;
+    line-height: 2.5rem;
   }
   p{
     font-size: 1.2rem;
+    line-height: 2.5rem;
   }
   del{
     font-size: 1.1rem;
+    line-height: 2.5rem;
   }
 }
 .font1{
@@ -239,5 +242,14 @@ export default {
   margin-top: 2rem;
   margin-left: 1rem;
   margin-right: 1rem;
+}
+#bottom{
+  box-shadow: none;
+  margin-top: 1.5rem; 
+  height:auto; 
+  color:#00000070;
+  p{
+    font-size: 0.8rem;
+  }
 }
 </style>

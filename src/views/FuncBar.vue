@@ -197,16 +197,18 @@ mounted () {
 </script>
 
 <style lang="less">
+//移动端配置
 @media (max-width: 768px) {
     .home{
-      background: url(http://127.1:8887/mobile/blue.jpg);
+      background: url(https://blog.ri-co.cn/wp-content/uploads/2020/04/blue.jpg);
       background-attachment: fixed
 
     }
 } 
+//PC端
 @media (min-width: 768px) {
     .home{
-      background: url(http://127.1:8887/pc/lightblue.jpg);
+      background: url(https://blog.ri-co.cn/wp-content/uploads/2020/04/lightblue.jpg);
       background-attachment: fixed
 
     }

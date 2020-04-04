@@ -52,14 +52,17 @@ export default {
   p{
     color: rgb(255, 255, 255);
     font-size: 1.3rem;
+    line-height: 2rem;
   }
   h2{
     font-size: 1.8rem;
     font-weight: 400;
+    line-height: 2rem;
   }
   h4{
     font-size: 1.6rem;
     font-weight: 300;
+    line-height: 2rem;
   }
 }
 </style>
