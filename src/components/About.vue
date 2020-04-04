@@ -14,7 +14,7 @@
         <h4>技术：</h4>
         <p>项目满足长期可迭代+前后端分离的需求。</p>
         <p>前端使用当下最流行的Vue框架，采用我最喜欢的material风格，简约并拥有绝佳的交互效果，并且实现移动端适配。</p>
-        <p><strong>短期计划的技术栈</strong>：Vue+Vuetify+Go(Iris)+Mysql</p>
+        <p>短期计划的技术栈：Vue+Vuetify+Go(Iris)+Mysql</p>
         <p>将来可能会引用一些新的组件，拭目以待吧！</p>
         <p>项目开源，遵守MIT协议</p> 
         <v-btn depressed href="https://github.com/Sirlanri/blog-homepage">源码地址</v-btn>
@@ -52,11 +52,11 @@ export default {
     font-size: 1.3rem;
   }
   h2{
-    font-size: 1.7rem;
+    font-size: 1.8rem;
     font-weight: 400;
   }
   h4{
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: 300;
   }
 }
