@@ -248,6 +248,9 @@ export default {
     
   }
 }
+.card{
+  width: 100%;
+}
 .card-sm{
   margin-top: 2rem;
   margin-left: 1rem;

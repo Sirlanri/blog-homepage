@@ -48,22 +48,17 @@
     </v-row>
     
 
-    <v-row justify="center">
+    <v-row justify="center" >
       <v-col cols="2" style="padding-top:0" class="d-lg-flex d-none">
-        <v-card
-          width="20%"
-          min-width="160px"
-          class="d-lg-flex d-none"
-          color="rgba(0,0,0,.0)"
-          outlined
-        >
+        
           <v-navigation-drawer
             dark
-            class="d-lg-flex d-none"
+            class="d-lg-flex d-none fill-height"
             v-model="slide"
             :mini-variant.sync="mini"
             :expand-on-hover="slide"
             color="rgba(0,0,0,.5)"
+            height="950px"
           >
             <v-list nav>
               <v-list-item v-for="item in items" :key="item.title" link 
@@ -78,7 +73,7 @@
               </v-list-item>
             </v-list>
           </v-navigation-drawer>
-        </v-card>
+        
       </v-col>
 
         
@@ -107,9 +102,8 @@
             </v-list>
           </v-navigation-drawer>
         
-
-
         <router-view ></router-view>
+
       </v-col>
       <v-col col="2"  class="d-lg-flex d-none">
 
@@ -132,7 +126,7 @@ export default {
         { title: "博客", icon: "mdi-post", num:6},
         { title: "云盘", icon: "mdi-cloud-outline", num:7 },
         { title: "邮箱", icon: "mdi-email-variant", num:8 },
-        { title: "片语", icon: "mdi-post", num:2},
+        { title: "片语", icon: "mdi-forum", num:2},
         { title: "开发", icon: "mdi-xml", num:3},
         { title: "友链", icon: "mdi-link-variant-plus", num:4},
         { title: "关于", icon: "mdi-information-outline", num:5},
