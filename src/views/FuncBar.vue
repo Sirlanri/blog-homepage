@@ -84,18 +84,13 @@
         
 
       <v-col lg="8">
-        <v-card
-          min-width="160px"
-          class="d-lg-none d-flex"
-          color="rgba(0,0,0,.0)"
-          outlined
-        >
+        
           <v-navigation-drawer
             dark
-            class=" d-lg-none d-flex"
+            absolute
+            class=" d-lg-none d-block drawer"
             v-model="slide"
-            width="50%"
-            floating
+            
             color="rgba(0,0,0,.5)"
           >
             <v-list nav >
@@ -111,9 +106,9 @@
               </v-list-item>
             </v-list>
           </v-navigation-drawer>
-        </v-card>
-
         
+
+
         <router-view ></router-view>
       </v-col>
       <v-col col="2"  class="d-lg-flex d-none">
@@ -130,15 +125,17 @@ export default {
   components: {},
   data() {
     return {
-      screenWidth:document.body.clientWidth,
-      slide: true,
+      slide: false,
       mini: true,
       items: [
+        { title: "首页", icon: "mdi-home", num:1},
         { title: "博客", icon: "mdi-post", num:6},
         { title: "云盘", icon: "mdi-cloud-outline", num:7 },
-        //{ title: "开发", icon: "mdi-xml" },
         { title: "邮箱", icon: "mdi-email-variant", num:8 },
-
+        { title: "片语", icon: "mdi-post", num:2},
+        { title: "开发", icon: "mdi-xml", num:3},
+        { title: "友链", icon: "mdi-link-variant-plus", num:4},
+        { title: "关于", icon: "mdi-information-outline", num:5},
       ]
     };
   },
@@ -210,8 +207,17 @@ mounted () {
 </script>
 
 <style lang="less">
+@media (max-width: 768px) {
+    .home{
+      background: url(http://127.1:8887/mobile/blue.jpg);
+    }
+} 
+@media (min-width: 768px) {
+    .home{
+      background: url(http://127.1:8887/pc/lightblue.jpg);
+    }
+} 
 .home {
-  background: url(http://127.1:8887/pc/lightblue.jpg);
   background-size: 100% 100%;
   background-attachment: fixed
 }
