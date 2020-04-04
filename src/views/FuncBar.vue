@@ -6,37 +6,38 @@
         <v-app-bar-nav-icon class="menubtn" @click="inorout" 
         expand-on-hover style="margin-left:0"
         ></v-app-bar-nav-icon>
-
-        <v-toolbar-title>
+        <div style="width:40%" class="d-lg-none d-block"></div>
+        <v-toolbar-title >
+          
           <v-btn text large @click="jump(1)">
             <v-icon>mdi-home</v-icon>
             <span class="btnrt">深蓝的小站</span>
           </v-btn>
         </v-toolbar-title>
 
-        <v-spacer></v-spacer>
+        <v-spacer class="d-lg-flex d-none"></v-spacer>
 
         
-        <v-btn text large @click="jump(2)">
+        <v-btn text large @click="jump(2)" class="d-lg-flex d-none">
           <span class="btnrt">片语</span>
         </v-btn>
-        <v-btn text large @click="jump(3)">
+        <v-btn text large @click="jump(3)" class="d-lg-flex d-none">
           <span class="btnrt">开发</span>
         </v-btn>
-        <v-btn text large @click="jump(9)">
+        <v-btn text large @click="jump(9)" class="d-lg-flex d-none">
           <span class="btnrt">资源</span>
         </v-btn>
-        <v-btn text large @click="jump(4)">
+        <v-btn text large @click="jump(4)" class="d-lg-flex d-none">
           <span class="btnrt">友链</span>
         </v-btn>
-        <v-btn text large  @click="jump(5)">
+        <v-btn text large  @click="jump(5)" class="d-lg-flex d-none">
           <span class="btnrt">关于</span>
         </v-btn>
-        <v-btn icon>
+        <v-btn icon class="d-lg-flex d-none" >
           <v-icon>mdi-heart</v-icon>
         </v-btn>
 
-        <v-btn icon style="margin-right:0">
+        <v-btn icon style="margin-right:0" class="d-lg-flex d-none">
           <v-icon>mdi-magnify</v-icon>
         </v-btn>
 
