@@ -46,24 +46,24 @@
         </v-col>
       
     </v-row>
+    
 
     <v-row justify="center">
       <v-col cols="2" style="padding-top:0" class="d-lg-flex d-none">
         <v-card
-          height="1000px"
           width="20%"
           min-width="160px"
-          
+          class="d-lg-flex d-none"
           color="rgba(0,0,0,.0)"
           outlined
         >
           <v-navigation-drawer
             dark
-            class="drawer"
+            class="d-lg-flex d-none"
             v-model="slide"
             :mini-variant.sync="mini"
             :expand-on-hover="slide"
-            color="rgba(0,0,0,.3)"
+            color="rgba(0,0,0,.5)"
           >
             <v-list nav>
               <v-list-item v-for="item in items" :key="item.title" link 
@@ -81,7 +81,39 @@
         </v-card>
       </v-col>
 
+        
+
       <v-col lg="8">
+        <v-card
+          min-width="160px"
+          class="d-lg-none d-flex"
+          color="rgba(0,0,0,.0)"
+          outlined
+        >
+          <v-navigation-drawer
+            dark
+            class=" d-lg-none d-flex"
+            v-model="slide"
+            width="50%"
+            floating
+            color="rgba(0,0,0,.5)"
+          >
+            <v-list nav >
+              <v-list-item v-for="item in items" :key="item.title" link 
+              @click="jump(item.num)">
+                <v-list-item-icon>
+                  <v-icon class="listicon">{{ item.icon }}</v-icon>
+                </v-list-item-icon>
+
+                <v-list-item-content>
+                  <v-list-item-title>{{ item.title }}</v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </v-list>
+          </v-navigation-drawer>
+        </v-card>
+
+        
         <router-view ></router-view>
       </v-col>
       <v-col col="2"  class="d-lg-flex d-none">
