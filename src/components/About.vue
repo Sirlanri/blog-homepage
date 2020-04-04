@@ -2,7 +2,7 @@
   <div class="about">
     <v-card
     dark color="rgba(0,0,0,.5)">
-      <v-card-text class="font2">
+      <v-card-text class="font3">
         <h2>关于</h2>
         <p>&nbsp;</p>
         <p>不知不觉，已经学了几个月前端了，总想着给自己的网站 ri-co.cn 写个主页。</p>
@@ -44,7 +44,7 @@ export default {
 .about{
   height: 100%;
 }
-.font2{
+.font3{
   color: rgb(255, 255, 255);
   line-height: 2rem;
   padding-left: 1rem;
