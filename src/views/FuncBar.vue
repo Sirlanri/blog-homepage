@@ -46,8 +46,8 @@
       
     </v-row>
 
-    <v-row >
-      <v-col cols="2" style="padding-top:0" >
+    <v-row justify="center">
+      <v-col cols="2" style="padding-top:0" class="d-lg-flex d-none">
         <v-card
           height="1000px"
           width="20%"
@@ -58,6 +58,7 @@
         >
           <v-navigation-drawer
             dark
+            class="drawer"
             v-model="slide"
             :mini-variant.sync="mini"
             :expand-on-hover="slide"
@@ -79,10 +80,10 @@
         </v-card>
       </v-col>
 
-      <v-col cols="8">
+      <v-col lg="8">
         <router-view ></router-view>
       </v-col>
-      <v-col col="2">
+      <v-col col="2"  class="d-lg-flex d-none">
 
       </v-col>
 
@@ -177,7 +178,6 @@ mounted () {
 
 <style lang="less">
 .home {
-  height: 1100px;
   background: url(http://127.1:8887/pc/lightblue.jpg);
   background-size: 100% 100%;
   background-attachment: fixed
@@ -191,5 +191,8 @@ mounted () {
 }
 .rightbtn{
   margin-top: 2rem;
+}
+.drawer{
+  z-index: 3;
 }
 </style>
