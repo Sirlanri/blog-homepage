@@ -47,6 +47,8 @@ export default {
 .font2{
   color: rgb(255, 255, 255);
   line-height: 2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
   p{
     color: rgb(255, 255, 255);
     font-size: 1.3rem;

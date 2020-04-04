@@ -82,8 +82,7 @@
             absolute
             class=" d-lg-none d-block drawer"
             v-model="slide"
-            
-            color="rgba(0,0,0,.5)"
+            color="rgba(0,0,0,.7)"
           >
             <v-list nav >
               <v-list-item v-for="item in items" :key="item.title" link 
@@ -201,16 +200,19 @@ mounted () {
 @media (max-width: 768px) {
     .home{
       background: url(http://127.1:8887/mobile/blue.jpg);
+      background-attachment: fixed
+
     }
 } 
 @media (min-width: 768px) {
     .home{
       background: url(http://127.1:8887/pc/lightblue.jpg);
+      background-attachment: fixed
+
     }
 } 
 .home {
   background-size: 100% 100%;
-  background-attachment: fixed
 }
 .menubtn {
   margin-right: 2rem;
