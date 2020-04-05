@@ -20,18 +20,18 @@
 
         <v-col cols="4" class="d-lg-flex d-none">
           <v-card outlined color="rgba(255,255,255,0.5)" raised class="card">
-            <v-card-text class="cardfont">
+            <div class="cardfont">
               <h3>博客</h3> 
               <del>技术流的笔记本</del>  <del>分享生活</del> <del>干货满满</del><br> 
               沙雕日常 √
               <br>
               <p>使用WordPress搭建</p>
-            </v-card-text>
+            </div>
             <v-card-actions>
               <v-row  >
                 <v-col cols="3"></v-col>
                 <v-col style="padding-top:0">
-                  <v-btn large color="#E3F2FD" block @click="goto(1)">
+                  <v-btn large color="#ffffff" block @click="goto(1)">
                     <span class="btnrt2">Visit</span>
                   </v-btn>
                 </v-col>
@@ -43,18 +43,18 @@
 
         <v-col cols="4" class="d-lg-flex d-none">
           <v-card outlined color="rgba(255,255,255,0.5)" raised class="card">
-            <v-card-text class="cardfont">
+            <div class="cardfont">
               <h3>GitHub</h3> 
               <del>全球最大的同性交友网站</del><br> 
               注册于2017年，但最近才写项目
               <br>
               <p>欢迎大佬来fo</p>
-            </v-card-text>
+            </div>
             <v-card-actions>
               <v-row >
                 <v-col cols="3"></v-col>
                 <v-col style="padding-top:0">
-                  <v-btn large color="#E3F2FD" block  @click="goto(2)">
+                  <v-btn large color="#ffffff" block  @click="goto(2)">
                     <span class="btnrt2">Visit</span>
                   </v-btn>
                 </v-col>
@@ -66,19 +66,19 @@
 
         <v-col cols="4" class="d-lg-flex d-none">
           <v-card outlined color="rgba(255,255,255,0.5)" raised class="card">
-            <v-card-text class="cardfont">
+            <div class="cardfont">
               <h3>Twitter</h3> 
               曾经的回忆 <br> 
               认识了很多朋友
               
               <br>
               <p>于2019年离开</p>
-            </v-card-text>
+            </div>
             <v-card-actions>
               <v-row>
                 <v-col cols="3"></v-col>
                 <v-col style="padding-top:0">
-                  <v-btn large color="#E3F2FD" block disabled>
+                  <v-btn large color="#ffffff" block disabled>
                     <span class="btnrt2">Visit</span>
                   </v-btn>
                 </v-col>
@@ -91,19 +91,19 @@
 
         <v-col class="d-flex-inline d-lg-none">
 
-          <v-card outlined color="rgba(255,255,255,0.5)" raised class="card-sm">
-            <v-card-text class="cardfont">
+          <v-card outlined color="rgba(255,255,255,0.5)" raised  class="card-sm">
+            <div class="cardfont">
               <h3>博客</h3> 
               <del>技术流的笔记本</del>  <del>分享生活</del> <del>干货满满</del><br> 
               沙雕日常 √
               <br>
               <p>使用WordPress搭建</p>
-            </v-card-text>
+            </div>
             <v-card-actions>
               <v-row  >
                 <v-col cols="3"></v-col>
                 <v-col style="padding-top:0">
-                  <v-btn large color="#E3F2FD" block @click="goto(1)">
+                  <v-btn large color="#ffffff" block @click="goto(1)">
                     <span class="btnrt2">Visit</span>
                   </v-btn>
                 </v-col>
@@ -113,18 +113,18 @@
           </v-card>
 
           <v-card outlined color="rgba(255,255,255,0.5)" raised class="card-sm">
-            <v-card-text class="cardfont">
+            <div class="cardfont">
               <h3>GitHub</h3> 
               <del>全球最大的同性交友网站</del><br> 
               注册于2017年，但最近才写项目
               <br>
               <p>欢迎大佬来fo</p>
-            </v-card-text>
+            </div>
             <v-card-actions>
               <v-row >
                 <v-col cols="3"></v-col>
                 <v-col style="padding-top:0">
-                  <v-btn large color="#E3F2FD" block  @click="goto(2)">
+                  <v-btn large color="#ffffff" block  @click="goto(2)">
                     <span class="btnrt2">Visit</span>
                   </v-btn>
                 </v-col>
@@ -134,19 +134,19 @@
           </v-card>
 
           <v-card outlined color="rgba(255,255,255,0.5)" raised class="card-sm">
-            <v-card-text class="cardfont">
+            <div class="cardfont">
               <h3>Twitter</h3> 
               曾经的回忆 <br> 
               认识了很多朋友
               
               <br>
               <p>于2019年离开</p>
-            </v-card-text>
+            </div>
             <v-card-actions>
               <v-row>
                 <v-col cols="3"></v-col>
                 <v-col style="padding-top:0">
-                  <v-btn large color="#E3F2FD" block disabled>
+                  <v-btn large color="#ffffff" block disabled>
                     <span class="btnrt2">Visit</span>
                   </v-btn>
                 </v-col>
@@ -196,21 +196,20 @@ export default {
   text-transform: none;
 }
 .cardfont{
+  color:#282828;
+  padding: 1rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 1.3rem;
   line-height: 2.5rem;
   h3{
     font-size: 1.6rem;
     font-weight: 600;
-    line-height: 2.5rem;
   }
   p{
     font-size: 1.2rem;
-    line-height: 2.5rem;
   }
   del{
     font-size: 1.1rem;
-    line-height: 2.5rem;
   }
 }
 .font1{
