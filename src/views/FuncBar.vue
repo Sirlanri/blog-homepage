@@ -50,12 +50,12 @@
         
           <v-navigation-drawer
             dark
-            class="d-lg-flex d-none fill-height"
+            class="d-lg-flex d-none"
             v-model="slide"
             :mini-variant.sync="mini"
             :expand-on-hover="slide"
             color="rgba(0,0,0,.5)"
-            height="950px"
+            permanent
           >
             <v-list nav>
               <v-list-item v-for="item in items" :key="item.title" link 
@@ -80,7 +80,7 @@
           <v-navigation-drawer
             dark
             absolute
-            class=" d-lg-none d-block drawer"
+            class=" d-lg-none d-flex "
             v-model="slide"
             color="rgba(0,0,0,.7)"
           >

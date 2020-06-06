@@ -1,11 +1,11 @@
 <template>
   <div>
     <v-container>
-      <v-row style="height:550px;" 
+      <v-row 
         align="center" justify="center" 
         class="d-lg-flex d-none"
       >
-        <v-col cols="12"  class="font1" 
+        <v-col cols="12"  class="headline centerwords" 
           lg="12" >
           <p>Hi~</p> 
           <p>我是一个爱着数字媒体玩着前端还想学后端的家伙</p>
@@ -17,11 +17,11 @@
 
       
       <v-row >
-
+        <!-- 电脑端 -->
         <v-col cols="4" class="d-lg-flex d-none">
           <v-card outlined color="rgba(255,255,255,0.5)" raised class="card">
-            <div class="cardfont">
-              <h3>博客</h3> 
+            <div class="cardfont subtitle-1">
+              <h3 class="headline">博客</h3> 
               <del>技术流的笔记本</del>  <del>分享生活</del> <del>干货满满</del><br> 
               沙雕日常 √
               <br>
@@ -43,8 +43,8 @@
 
         <v-col cols="4" class="d-lg-flex d-none">
           <v-card outlined color="rgba(255,255,255,0.5)" raised class="card">
-            <div class="cardfont">
-              <h3>GitHub</h3> 
+            <div class="cardfont subtitle-1">
+              <h3 class="headline">GitHub</h3> 
               <del>全球最大的同性交友网站</del><br> 
               注册于2017年，但最近才写项目
               <br>
@@ -66,8 +66,8 @@
 
         <v-col cols="4" class="d-lg-flex d-none">
           <v-card outlined color="rgba(255,255,255,0.5)" raised class="card">
-            <div class="cardfont">
-              <h3>Twitter</h3> 
+            <div class="cardfont subtitle-1">
+              <h3 class="headline">Twitter</h3> 
               曾经的回忆 <br> 
               认识了很多朋友
               
@@ -88,7 +88,7 @@
           </v-card>
         </v-col>
 
-
+        <!-- 手机端 -->
         <v-col class="d-flex-inline d-lg-none">
 
           <v-card outlined color="rgba(255,255,255,0.5)" raised  class="card-sm">
@@ -195,22 +195,15 @@ export default {
   font-family: "Segoe UI";
   text-transform: none;
 }
+.centerwords{
+  padding-bottom: 8%;
+  padding-top: 10%;
+}
 .cardfont{
   color:#282828;
   padding: 1rem;
+  line-height: 2rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 1.3rem;
-  line-height: 2.5rem;
-  h3{
-    font-size: 1.6rem;
-    font-weight: 600;
-  }
-  p{
-    font-size: 1.2rem;
-  }
-  del{
-    font-size: 1.1rem;
-  }
 }
 .font1{
   color: #282828;
@@ -225,14 +218,7 @@ export default {
 }
 .font1-sm{
   color: #282828;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 1.3rem;
-  font-weight: 400;
-  line-height: 1.2rem;
-  p{
-    font-size: 1.2rem;
-    
-  }
+  
 }
 .card{
   width: 100%;
@@ -250,5 +236,8 @@ export default {
   p{
     font-size: 0.8rem;
   }
+}
+.drawer{
+  height: 93vh;
 }
 </style>
