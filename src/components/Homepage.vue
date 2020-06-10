@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-container>
+    <v-container style="padding:0">
       <v-row 
         align="center" justify="center" 
         class="d-lg-flex d-none"
@@ -157,9 +157,8 @@
 
         </v-col>
         
-
-      </v-row>
-      <v-bottom-navigation id="bottom" 
+        </v-row>
+      <v-bottom-navigation id="bottom" class="d-none d-lg-flex"
        background-color="rgba(0,0,0,0.0)">
         <p>鲁ICP备20005309号-1 | 鲁公网安备37011302000267号</p>
       </v-bottom-navigation>
@@ -196,8 +195,8 @@ export default {
   text-transform: none;
 }
 .centerwords{
-  padding-bottom: 8%;
-  padding-top: 10%;
+  padding-bottom: 23vh;
+  padding-top: 8vh;
 }
 .cardfont{
   color:#282828;
