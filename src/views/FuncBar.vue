@@ -46,7 +46,7 @@
     
 
     <v-row justify="center" >
-      <v-col cols="2" style="padding-top:0" class="d-lg-flex d-none">
+      <v-col cols="2" style="padding-top:0;" class="d-lg-flex d-none">
         
           <v-navigation-drawer
             dark
@@ -75,7 +75,7 @@
 
         
 
-      <v-col lg="8">
+      <v-col lg="8" style="height:100vh">
         
           <v-navigation-drawer
             dark
@@ -83,6 +83,7 @@
             class=" d-lg-none d-flex "
             v-model="slide"
             color="rgba(0,0,0,.7)"
+
           >
             <v-list nav >
               <v-list-item v-for="item in items" :key="item.title" link 
