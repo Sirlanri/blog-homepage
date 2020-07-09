@@ -34,9 +34,75 @@
           <span class="btnrt">关于</span>
         </v-btn>
 
-        <v-btn icon style="margin-right:1rem" class="d-lg-flex d-none">
-          <v-icon>mdi-dots-vertical</v-icon>
-        </v-btn>
+ 
+
+         <v-menu
+            left
+            bottom
+          >
+            <template v-slot:activator="{ on, attrs }">
+              <v-btn
+                icon
+                v-bind="attrs"
+                v-on="on"
+                style="margin-right:1rem"  
+                class="d-lg-flex d-none"
+              >
+                <v-icon>mdi-dots-vertical</v-icon>
+              </v-btn>
+            </template>
+
+            <v-list>
+              <v-list-item
+                v-for="more in mores"
+                :key="more"
+                @click="rootLoginWindow=true"
+              >
+                <v-list-item-title>{{more}}</v-list-item-title>
+              </v-list-item>
+            </v-list>
+          </v-menu>
+
+          <v-dialog v-model="rootLoginWindow" max-width="600px"  >
+            <v-card>
+              <v-card-title>
+                Root用户登录
+              </v-card-title>
+              <v-row justify="center" >
+                <v-col cols="10" >
+                  <v-text-field v-model="emailaddress"
+                  label="邮箱">
+
+                  </v-text-field>
+                  <v-text-field v-model="password"
+                  label="密码">
+
+                  </v-text-field>
+                </v-col>
+              </v-row>
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn color="darken-1" text @click="rootLoginWindow = false">取消</v-btn>
+                <v-btn color="blue darken-1" text @click="rootLogin">登录</v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-dialog>
+
+          <v-snackbar
+            v-model="snackbar"
+          >
+            你不是管理员，登录Root账号干嘛鸭_(:з」∠)_
+            <template v-slot:action="{ attrs }">
+              <v-btn
+                color="pink"
+                text
+                v-bind="attrs"
+                @click="snackbar = false"
+              >
+                知道了
+              </v-btn>
+            </template>
+          </v-snackbar>
 
         
       </v-app-bar>
@@ -111,11 +177,18 @@
 </template>
 
 <script>
+import axios from "axios"
+import store from "@/store/index"
 export default {
   name: "funcbar",
   components: {},
   data() {
     return {
+      snackbar:false,
+      emailaddress:"",
+      password:"",
+      rootLoginWindow:false,
+      mores:["Root登录"],
       slide: false,
       mini: true,
       items: [
@@ -155,6 +228,21 @@ mounted () {
 
 
   methods: {
+    rootLogin(){
+      this.rootLoginWindow=false
+      axios.post("http://localhost:8090/blog/",{
+        "email":this.emailaddress,
+        "password":this.password
+      }).then(res=>{
+        if (res.data=="yes") {
+          console.log("root验证通过")
+          store.commit("raisePower")
+        }
+        if (res.data=="no") {
+          console.log("root验证失败，非管理员")
+        }
+      })
+    },
     inorout() {
       this.slide = !this.slide;
     },
@@ -229,5 +317,8 @@ mounted () {
 }
 .drawer{
   z-index: 3;
+}
+.v-dialog{
+  overflow-y: initial;
 }
 </style>
