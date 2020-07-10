@@ -54,11 +54,16 @@
 
             <v-list>
               <v-list-item
-                v-for="more in mores"
-                :key="more"
+                v-if="isLoggin"
+                @click="logout"
+              >
+                <v-list-item-title>注销登录</v-list-item-title>
+              </v-list-item>
+              <v-list-item
+                v-else
                 @click="rootLoginWindow=true"
               >
-                <v-list-item-title>{{more}}</v-list-item-title>
+                <v-list-item-title>Root登录</v-list-item-title>
               </v-list-item>
             </v-list>
           </v-menu>
@@ -74,8 +79,12 @@
                   label="邮箱">
 
                   </v-text-field>
-                  <v-text-field v-model="password"
-                  label="密码">
+                  <v-text-field v-model="password" 
+                    :append-icon="showpassword ? 'mdi-eye' : 'mdi-eye-off'"
+                    
+                    :type="showpassword ? 'text' : 'password'"
+                    @click:append="showpassword = !showpassword"
+                    label="密码">
 
                   </v-text-field>
                 </v-col>
@@ -184,6 +193,7 @@ export default {
   components: {},
   data() {
     return {
+      showpassword:false,
       loginInfor:"",
       snackbar:false,
       emailaddress:"",
@@ -235,6 +245,15 @@ mounted () {
 
 
   methods: {
+    logout(){
+      axios.get("http://localhost:8090/blog/rootlogout")
+      .then(res=>{
+        if (res.data=="done") {
+          this.loginInfor="Root已注销"
+          this.snackbar=true
+        }
+      })
+    },
     rootLogin(){
       this.rootLoginWindow=false
       axios.post("http://localhost:8090/blog/rootlogin/",{
