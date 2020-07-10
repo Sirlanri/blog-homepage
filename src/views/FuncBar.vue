@@ -91,7 +91,7 @@
           <v-snackbar
             v-model="snackbar"
           >
-            你不是管理员，登录Root账号干嘛鸭_(:з」∠)_
+            {{loginInfor}}
             <template v-slot:action="{ attrs }">
               <v-btn
                 color="pink"
@@ -184,6 +184,7 @@ export default {
   components: {},
   data() {
     return {
+      loginInfor:"",
       snackbar:false,
       emailaddress:"",
       password:"",
@@ -202,6 +203,12 @@ export default {
         { title: "关于", icon: "mdi-information-outline", num:5},
       ]
     };
+  },
+  computed:{
+    //从store判断是否登录
+    isLoggin(){
+      return store.getters.isroot
+    }
   },
   watch:{
     screenWidth(val){
@@ -230,18 +237,29 @@ mounted () {
   methods: {
     rootLogin(){
       this.rootLoginWindow=false
-      axios.post("http://localhost:8090/blog/",{
-        "email":this.emailaddress,
+      axios.post("http://localhost:8090/blog/rootlogin/",{
+        "mail":this.emailaddress,
         "password":this.password
       }).then(res=>{
         if (res.data=="yes") {
           console.log("root验证通过")
           store.commit("raisePower")
+          this.mores[0]="注销Root"
+          this.loginInfor="Root登录成功"
         }
         if (res.data=="no") {
           console.log("root验证失败，非管理员")
+          this.loginInfor="Root验证失败，非管理员"
         }
+        if (res.data=="wrong") {
+          console.log("root验证失败，密码错误")
+          this.loginInfor="Root验证失败，密码错误"
+        }
+      }).catch(e=>{
+        console.log("root请求失败",e)
+        this.loginInfor="网络错误，请求失败"
       })
+      this.snackbar=true
     },
     inorout() {
       this.slide = !this.slide;
