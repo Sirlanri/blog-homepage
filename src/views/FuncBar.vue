@@ -77,11 +77,9 @@
                 <v-col cols="10" >
                   <v-text-field v-model="emailaddress"
                   label="邮箱">
-
                   </v-text-field>
                   <v-text-field v-model="password" 
                     :append-icon="showpassword ? 'mdi-eye' : 'mdi-eye-off'"
-                    
                     :type="showpassword ? 'text' : 'password'"
                     @click:append="showpassword = !showpassword"
                     label="密码">
@@ -101,16 +99,13 @@
             v-model="snackbar"
           >
             {{loginInfor}}
-            <template v-slot:action="{ attrs }">
               <v-btn
-                color="pink"
+                color="blue"
                 text
-                v-bind="attrs"
                 @click="snackbar = false"
               >
-                知道了
+                知道啦
               </v-btn>
-            </template>
           </v-snackbar>
 
         
@@ -194,7 +189,7 @@ export default {
   data() {
     return {
       showpassword:false,
-      loginInfor:"",
+      loginInfor:"登录中，请稍后",
       snackbar:false,
       emailaddress:"",
       password:"",
@@ -218,7 +213,7 @@ export default {
     //从store判断是否登录
     isLoggin(){
       return store.getters.isroot
-    }
+    },
   },
   watch:{
     screenWidth(val){
@@ -250,13 +245,14 @@ mounted () {
       .then(res=>{
         if (res.data=="done") {
           this.loginInfor="Root已注销"
+          this.mores[0]="Root登录"
           this.snackbar=true
         }
       })
     },
     rootLogin(){
       this.rootLoginWindow=false
-      axios.post("http://localhost:8090/blog/rootlogin/",{
+      axios.post("http://localhost:8090/blog/rootlogin",{
         "mail":this.emailaddress,
         "password":this.password
       }).then(res=>{
