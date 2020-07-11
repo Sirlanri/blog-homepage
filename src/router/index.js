@@ -36,7 +36,7 @@ const routes = [
           {
             path:'/friends',
             name:'friends',
-            component:()=>import('../components/Friends.vue')
+            component:()=>import('../views/Friends.vue')
           },
           {
             path:'/about',
