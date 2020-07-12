@@ -12,7 +12,7 @@
     <v-card-title>{{siteName}}</v-card-title>
 
     <v-card-actions v-if="isroot">
-      <v-btn text color="primary">修改</v-btn>
+      <v-btn text color="primary" @click="editwindow=true">修改</v-btn>
       <v-btn text color="error">删除</v-btn>
       <v-btn outlined large class="jumpbtn" @click="visit">
         <v-icon>mdi-forward</v-icon>
@@ -55,20 +55,49 @@
       </v-btn>
     </v-card-actions>
 
-    <v-dialog v-model="editwindow">
+    <v-dialog v-model="editwindow" max-width="1000px">
       <v-card>
         <v-card-title>修改友链</v-card-title>
+        <v-row justify="center">
+          <v-col cols="10">
+            <v-text-field label="网站地址" v-model="siteAddress">
+            </v-text-field>
+            <v-text-field label="名称" v-model="siteName"></v-text-field>
+            <v-text-field label="简介" v-model="introduction"></v-text-field>
+            <v-file-input label="图片/封面"></v-file-input>
+            <v-checkbox v-model="ssl" label="Https"></v-checkbox>
+            <v-btn text @click="editwindow=false">取消</v-btn>
+            <v-btn text color="primary" @click="edit">确认</v-btn>
+          </v-col>
+        </v-row>
       </v-card>
     </v-dialog>
+
+    <v-snackbar
+      v-model="snackbar"
+    >
+      {{result}}
+        <v-btn
+          color="blue"
+          text
+          @click="resultWindow = false"
+        >
+          知道啦
+        </v-btn>
+    </v-snackbar>
   </v-card>
 </template>
 
 <script>
 import store from "@/store/index";
+import axios  from "axios";
 export default {
   data() {
     return {
-      editwindow: false
+      editwindow: false,
+      isssl:false,
+      result:"",
+      resultWindow:false
     };
   },
   props: {
@@ -88,6 +117,25 @@ export default {
   methods: {
     edit() {
       store.commit("changeId", this.id);
+      let sendData={
+        id:this.id,
+        siteName:this.siteName,
+        siteAddress:this.siteAddress,
+        introduction:this.introduction,
+        ssl:this.ssl,
+      }
+      axios.post("http://localhost:8090/blog/updatafriend",sendData)
+      .then(res=>{
+        if(res.status==200){
+          this.result="发送成功"
+          this.resultWindow=true
+        }
+      }).catch(e=>{
+          this.result="发送出错，请查看控制台"
+          this.resultWindow=true
+          console.log(e)
+      })
+
     },
     visit() {
       window.open(this.siteAddress);
