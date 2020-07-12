@@ -145,7 +145,7 @@
 
         
 
-      <v-col lg="8" style="height:100vh">
+      <v-col lg="8">
         
           <v-navigation-drawer
             dark

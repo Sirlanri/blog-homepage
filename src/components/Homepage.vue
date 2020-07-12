@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-container style="padding:0">
+    <v-container style="padding:0;min-height:100vh">
       <v-row 
         align="center" justify="center" 
         class="d-lg-flex d-none"
