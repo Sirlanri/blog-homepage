@@ -50,24 +50,11 @@ export default {
     }
   },
   methods:{
-    
+
   }
 }
 </script>
 
 <style lang="less">
-.msnum{
-  padding-left: 3px;
-  padding-right: 10px;
-  color: #7d7d7d;
-}
-.ssl{
-  margin-right: 10px;
-}
-.jumpbtn{
-  margin-left: 40%;
-}
-.cardtext{
-  color: aliceblue;
-}
+
 </style>

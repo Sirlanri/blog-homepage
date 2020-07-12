@@ -11,8 +11,8 @@
       </v-card-title>
 
       <v-card-actions v-if="isroot">
-          <v-btn text small>修改</v-btn>
-          <v-btn text small color="error">删除</v-btn>
+          <v-btn text color="primary" >修改</v-btn>
+          <v-btn text  color="error">删除</v-btn>
           <v-btn outlined large class="jumpbtn" @click="visit">
               <v-icon>mdi-forward</v-icon>
           </v-btn>
@@ -25,18 +25,43 @@
               </template>
               <span>已开启SSL加密</span>
           </v-tooltip>
+          <v-tooltip bottom v-else>
+              <template v-slot:activator="{ on, attrs }">
+                <v-icon class="ssl" v-bind="attrs" v-on="on">mdi-lock-open-alert</v-icon>
+              </template>
+              <span>未开启SSL加密</span>
+          </v-tooltip>
           
-          <v-icon v-else class="ssl">mdi-lock-open-alert</v-icon>
           <v-icon v-if="speed<=100" color="green">mdi-speedometer</v-icon>
           <v-icon v-if="speed<=1000&&speed>100" color="#998a09">mdi-speedometer-medium</v-icon>
           <v-icon v-if="speed>1000" color="red">mdi-speedometer-slow</v-icon>
-          <span class="msnum" v-if="speed<999">{{speed}}ms</span>
-          <span class="msnum" v-else>999+ms</span>
+          
+          <v-tooltip bottom v-if="speed<999">
+              <template  v-slot:activator="{ on, attrs }">
+                <span class="msnum" v-bind="attrs" v-on="on" >{{speed}}ms</span>
+              </template>
+              <span>网站速度</span>
+          </v-tooltip>
+          <v-tooltip bottom v-else>
+              <template  v-slot:activator="{ on, attrs }">
+                <span class="msnum" v-bind="attrs" v-on="on" >999+ms</span>
+              </template>
+              <span>此网站无法访问</span>
+          </v-tooltip>
           
           <v-btn outlined  large class="jumpbtn" @click="visit">
               <v-icon>mdi-forward</v-icon>
           </v-btn>
       </v-card-actions>
+
+      <v-dialog v-model="editwindow">
+          <v-card>
+              <v-card-title>
+                  修改友链
+              </v-card-title>
+                
+          </v-card>
+      </v-dialog>
 
   </v-card>
 </template>
@@ -44,6 +69,11 @@
 <script>
 import store from "@/store/index"
 export default {
+    data(){
+        return{
+            editwindow:false
+        }
+    },
     props:{
         id:Number,
         picAddress:String,
@@ -70,5 +100,18 @@ export default {
 </script>
 
 <style>
-
+.msnum{
+  padding-left: 3px;
+  padding-right: 10px;
+  color: #7d7d7d;
+}
+.ssl{
+  margin-right: 10px;
+}
+.jumpbtn{
+  margin-left: 40%;
+}
+.cardtext{
+  color: aliceblue;
+}
 </style>
