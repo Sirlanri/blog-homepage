@@ -74,7 +74,7 @@
     </v-dialog>
 
     <v-snackbar
-      v-model="snackbar"
+      v-model="resultWindow"
     >
       {{result}}
         <v-btn
