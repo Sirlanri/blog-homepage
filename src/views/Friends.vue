@@ -5,8 +5,8 @@
       <v-col cols="4" lg="4" md="3" sm="2" 
         v-for="card in cardsData" :key="card.id">
         <cards 
-          :siteName="card.siteName" :picAddress="card.picAddress" :ssl="card.ssl" :speed="card.speed"
-          :id="card.id" :siteAddress="card.siteAddress" :introduction="card.introduction" >
+          :siteName="card.sitename" :picAddress="card.picaddress" :ssl="card.ssl" :speed="card.ping"
+          :id="card.id" :siteAddress="card.siteaddress" :introduction="card.introduction" >
         </cards>
       </v-col>
     </v-row>
@@ -16,6 +16,7 @@
 
 <script>
 import cards from "@/components/FriendCard.vue"
+import axios from "axios"
 export default {
   components:{
     cards
@@ -49,8 +50,20 @@ export default {
       ]
     }
   },
+  mounted(){
+    this.getFriends()
+  },
   methods:{
-
+    getFriends(){
+      axios.get("http://localhost:8090/blog/getfriends")
+        .then(res=>{
+          if (res.status==200) {
+            this.cardsData=res.data.list
+          }else{
+            console.log("获取friends信息失败")
+          }
+        })
+    }
   }
 }
 </script>

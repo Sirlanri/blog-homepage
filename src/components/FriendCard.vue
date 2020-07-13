@@ -115,6 +115,21 @@ export default {
     }
   },
   methods: {
+    addFriend(){
+      let sendData={
+        siteName:this.siteName,
+        siteAddress:this.siteAddress,
+        introduction:this.introduction,
+        ssl:this.ssl,
+      }
+      axios.post("http://localhost:8090/blog/addfriend",sendData)
+      .then(res=>{
+        if(res.status==200){
+          this.result="发送成功"
+          this.resultWindow=true
+        }
+      })
+    },
     edit() {
       store.commit("changeId", this.id);
       let sendData={

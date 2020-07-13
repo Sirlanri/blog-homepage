@@ -60,6 +60,12 @@
                 <v-list-item-title>注销登录</v-list-item-title>
               </v-list-item>
               <v-list-item
+                v-if="isLoggin"
+                @click="addFriendWindow=true"
+              >
+                <v-list-item-title>添加友链</v-list-item-title>
+              </v-list-item>
+              <v-list-item
                 v-else
                 @click="rootLoginWindow=true"
               >
@@ -95,6 +101,24 @@
             </v-card>
           </v-dialog>
 
+          <v-dialog v-model="addFriendWindow" max-width="1000px">
+            <v-card>
+              <v-card-title>添加友链</v-card-title>
+              <v-row justify="center">
+                <v-col cols="10">
+                  <v-text-field label="网站地址" v-model="siteAddress">
+                  </v-text-field>
+                  <v-text-field label="名称" v-model="siteName"></v-text-field>
+                  <v-text-field label="简介" v-model="introduction"></v-text-field>
+                  <v-file-input label="图片/封面"></v-file-input>
+                  <v-checkbox v-model="ssl" label="Https"></v-checkbox>
+                  <v-btn text @click="addFriendWindow=false">取消</v-btn>
+                  <v-btn text color="primary" @click="addFriend()">确认</v-btn>
+                </v-col>
+              </v-row>
+            </v-card>
+          </v-dialog>
+
           <v-snackbar
             v-model="snackbar"
           >
@@ -120,8 +144,9 @@
         
           <v-navigation-drawer
             dark
-            class="d-lg-flex d-none"
+            class="d-lg-flex d-none pcdraw"
             v-model="slide"
+            
             :mini-variant.sync="mini"
             :expand-on-hover="slide"
             color="rgba(0,0,0,.5)"
@@ -188,13 +213,19 @@ export default {
   components: {},
   data() {
     return {
+      //添加友链的信息
+      siteName: "",
+      siteAddress: "",
+      introduction: "",
+      ssl: false,
+
+      addFriendWindow:false,
       showpassword:false,
       loginInfor:"登录中，请稍后",
       snackbar:false,
       emailaddress:"",
       password:"",
       rootLoginWindow:false,
-      mores:["Root登录"],
       slide: false,
       mini: true,
       items: [
@@ -245,7 +276,6 @@ mounted () {
       .then(res=>{
         if (res.data=="done") {
           this.loginInfor="Root已注销"
-          this.mores[0]="Root登录"
           this.snackbar=true
         }
       })
@@ -259,7 +289,6 @@ mounted () {
         if (res.data=="yes") {
           console.log("root验证通过")
           store.commit("raisePower")
-          this.mores[0]="注销Root"
           this.loginInfor="Root登录成功"
         }
         if (res.data=="no") {
@@ -350,6 +379,10 @@ mounted () {
 }
 .drawer{
   z-index: 3;
+}
+.pcdraw{
+  min-height: 100vh;
+
 }
 .v-dialog{
   overflow-y: initial;
