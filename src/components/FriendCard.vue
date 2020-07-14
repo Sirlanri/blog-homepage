@@ -116,7 +116,9 @@ export default {
   },
   methods: {
     addFriend(){
+      let picAddress=store.state.picAddress
       let sendData={
+        picAddress:picAddress,
         siteName:this.siteName,
         siteAddress:this.siteAddress,
         introduction:this.introduction,

@@ -110,7 +110,7 @@
                   </v-text-field>
                   <v-text-field label="名称" v-model="siteName"></v-text-field>
                   <v-text-field label="简介" v-model="introduction"></v-text-field>
-                  <v-file-input label="图片/封面"></v-file-input>
+                  <v-file-input type="file" @change="sendpic" label="图片/封面"></v-file-input>
                   <v-checkbox v-model="ssl" label="Https"></v-checkbox>
                   <v-btn text @click="addFriendWindow=false">取消</v-btn>
                   <v-btn text color="primary" @click="addFriend()">确认</v-btn>
@@ -271,11 +271,33 @@ mounted () {
 
 
   methods: {
+    sendpic(e){
+      //注意，我们这里没有使用form表单提交文件，所以需要用new FormData来进行提交
+      let fd= new FormData();
+      fd.append("pic", e);//第一个参数字符串可以填任意命名，第二个根据对象属性来找到file
+      // 对所有 axios 请求做处理，支持cookies
+      console.log(fd.get("pic"))
+      axios.defaults.withCredentials = true;
+      axios.defaults.headers={'Content-Type': 'multipart/form-data'}
+      axios.post("http://localhost:8090/blog/uploadpic", fd) //url是服务器的提交地址
+          //成功回调
+          .then(res => {
+            console.log(res.data)
+            
+           }) //将服务器返回的图片链接添加进img数组，进行预览展示
+          //失败回调
+          .catch(err => {alert(err);});
+          
+    },
+    addFriend(){
+
+    },
     logout(){
       axios.get("http://localhost:8090/blog/rootlogout")
       .then(res=>{
         if (res.data=="done") {
           this.loginInfor="Root已注销"
+          store.commit("logout")
           this.snackbar=true
         }
       })

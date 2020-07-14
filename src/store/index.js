@@ -8,6 +8,7 @@ export default new Vuex.Store({
     //当前的权限
     power:"visiter",
     friendId:"",
+    picAddress:""
   },
   getters:{
     //判断是否为root登录，方便页面使用
@@ -22,6 +23,9 @@ export default new Vuex.Store({
   mutations: {
     raisePower(state){
       state.power = "root"
+    },
+    logout(state){
+      state.power = "visiter"
     },
     //记录当前修改/删除友链的ID
     changeId(state,id){
