@@ -34,10 +34,10 @@
       </v-tooltip>
 
       <v-icon v-if="speed<=100" color="green">mdi-speedometer</v-icon>
-      <v-icon v-if="speed<=1000&&speed>100" color="#998a09">mdi-speedometer-medium</v-icon>
-      <v-icon v-if="speed>1000" color="red">mdi-speedometer-slow</v-icon>
+      <v-icon v-if="speed<1000&&speed>100" color="#998a09">mdi-speedometer-medium</v-icon>
+      <v-icon v-if="speed>=1000" color="red">mdi-speedometer-slow</v-icon>
 
-      <v-tooltip bottom v-if="speed<999">
+      <v-tooltip bottom v-if="speed<=999">
         <template v-slot:activator="{ on, attrs }">
           <span class="msnum" v-bind="attrs" v-on="on">{{speed}}ms</span>
         </template>
