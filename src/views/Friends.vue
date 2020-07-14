@@ -1,8 +1,8 @@
 <template>
   <div>
     <v-container>
-    <v-row justify-sm="center" justify-md="start">
-      <v-col cols="10" lg="4" md="6"
+    <v-row justify-xs="center" justify-sm="center" justify-md="start">
+      <v-col cols="10" lg="4" md="6" xl="3"
         v-for="card in cardsData" :key="card.id">
         <cards 
           :siteName="card.sitename" :picAddress="card.picaddress" :ssl="card.ssl" :speed="card.ping"
