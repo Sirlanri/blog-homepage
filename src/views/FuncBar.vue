@@ -283,14 +283,28 @@ mounted () {
           //成功回调
           .then(res => {
             console.log(res.data)
-            
+            store.commit("changePicAddress",res.data)
            }) //将服务器返回的图片链接添加进img数组，进行预览展示
           //失败回调
           .catch(err => {alert(err);});
           
     },
     addFriend(){
-
+      let sendData={
+        picAddress:store.state.picAddress,
+        siteName:this.siteName,
+        siteAddress:this.siteAddress,
+        introduction:this.introduction,
+        ssl:this.ssl,
+      }
+      axios.post("http://localhost:8090/blog/addfriend",sendData)
+      .then(res=>{
+        if(res.status==200){
+          this.result="发送成功"
+          this.addFriendWindow=false
+          this.resultWindow=true
+        }
+      })
     },
     logout(){
       axios.get("http://localhost:8090/blog/rootlogout")

@@ -30,6 +30,10 @@ export default new Vuex.Store({
     //记录当前修改/删除友链的ID
     changeId(state,id){
       state.friendId=id
+    },
+    //修改当前的picAddress
+    changePicAddress(state,address){
+      state.picAddress=address
     }
   },
   actions: {
