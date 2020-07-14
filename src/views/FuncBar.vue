@@ -21,9 +21,7 @@
         <v-btn text large @click="jump(2)" class="d-lg-flex d-none">
           <span class="btnrt">片语</span>
         </v-btn>
-        <v-btn text large @click="jump(3)" class="d-lg-flex d-none">
-          <span class="btnrt">开发</span>
-        </v-btn>
+        
         <v-btn text large @click="jump(9)" class="d-lg-flex d-none">
           <span class="btnrt">资源</span>
         </v-btn>
@@ -66,11 +64,19 @@
                 <v-list-item-title>添加友链</v-list-item-title>
               </v-list-item>
               <v-list-item
+                v-if="isLoggin"
+                @click="refreshms"
+                >
+                <v-list-item-title>刷新延迟</v-list-item-title>
+              </v-list-item>
+
+              <v-list-item
                 v-else
                 @click="rootLoginWindow=true"
               >
                 <v-list-item-title>Root登录</v-list-item-title>
               </v-list-item>
+              
             </v-list>
           </v-menu>
 
@@ -234,7 +240,7 @@ export default {
         { title: "云盘", icon: "mdi-cloud-outline", num:7 },
         { title: "邮箱", icon: "mdi-email-variant", num:8 },
         { title: "片语", icon: "mdi-forum", num:2},
-        { title: "开发", icon: "mdi-xml", num:3},
+        //{ title: "开发", icon: "mdi-xml", num:3},
         { title: "友链", icon: "mdi-link-variant-plus", num:4},
         { title: "关于", icon: "mdi-information-outline", num:5},
       ]
@@ -271,6 +277,10 @@ mounted () {
 
 
   methods: {
+    refreshms(){
+      axios.defaults.withCredentials = true;
+      axios.get("http://localhost:8090/blog/refreshms")
+    },
     sendpic(e){
       //注意，我们这里没有使用form表单提交文件，所以需要用new FormData来进行提交
       let fd= new FormData();
@@ -286,8 +296,7 @@ mounted () {
             store.commit("changePicAddress",res.data)
            }) //将服务器返回的图片链接添加进img数组，进行预览展示
           //失败回调
-          .catch(err => {alert(err);});
-          
+          .catch(err => {alert(err);});  
     },
     addFriend(){
       let sendData={
@@ -297,6 +306,7 @@ mounted () {
         introduction:this.introduction,
         ssl:this.ssl,
       }
+      axios.defaults.withCredentials = true;
       axios.post("http://localhost:8090/blog/addfriend",sendData)
       .then(res=>{
         if(res.status==200){
@@ -307,6 +317,7 @@ mounted () {
       })
     },
     logout(){
+      axios.defaults.withCredentials = true;
       axios.get("http://localhost:8090/blog/rootlogout")
       .then(res=>{
         if (res.data=="done") {
