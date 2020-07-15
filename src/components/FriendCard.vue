@@ -9,50 +9,64 @@
     >
       <v-card-text class="cardtext">{{introduction}}</v-card-text>
     </v-img>
-    <v-card-title>{{siteName}}</v-card-title>
+    <v-card-title class="cardtitle">{{siteName}}</v-card-title>
 
-    <v-card-actions v-if="isroot">
-      <v-btn text color="primary" @click="editwindow=true">修改</v-btn>
-      <v-btn text color="error" @click="delwindow=true">删除</v-btn>
-      <v-btn outlined large class="jumpbtn" @click="visit">
-        <v-icon>mdi-forward</v-icon>
-      </v-btn>
+    <v-card-actions v-if="isroot" class="action">
+      <v-row align="center">
+        <v-col cols="7">
+          <v-btn text color="primary" @click="openeditwindow">修改</v-btn>
+          <v-btn text color="error" @click="delwindow=true">删除</v-btn>
+        </v-col>
+        <v-col cols="3" offset="1">
+          <v-btn outlined large @click="visit">
+            <v-icon>mdi-forward</v-icon>
+          </v-btn>
+        </v-col>
+      </v-row>
+      
+      
     </v-card-actions>
 
-    <v-card-actions v-else>
-      <v-tooltip bottom v-if="ssl">
-        <template v-slot:activator="{ on, attrs }">
-          <v-icon class="ssl" v-bind="attrs" v-on="on">mdi-shield-lock-outline</v-icon>
-        </template>
-        <span>已开启SSL加密</span>
-      </v-tooltip>
-      <v-tooltip bottom v-else>
-        <template v-slot:activator="{ on, attrs }">
-          <v-icon class="ssl" v-bind="attrs" v-on="on">mdi-lock-open-alert</v-icon>
-        </template>
-        <span>未开启SSL加密</span>
-      </v-tooltip>
+    <v-card-actions v-else class="action">
+      <v-row align="center">
+        <v-col cols="7" >
+        <v-tooltip bottom v-if="ssl">
+          <template v-slot:activator="{ on, attrs }">
+            <v-icon class="ssl" v-bind="attrs" v-on="on">mdi-shield-lock-outline</v-icon>
+          </template>
+          <span>已开启SSL加密</span>
+        </v-tooltip>
+        <v-tooltip bottom v-else>
+          <template v-slot:activator="{ on, attrs }">
+            <v-icon class="ssl" v-bind="attrs" v-on="on">mdi-lock-open-alert</v-icon>
+          </template>
+          <span>未开启SSL加密</span>
+        </v-tooltip>
 
-      <v-icon v-if="speed<=100" color="green">mdi-speedometer</v-icon>
-      <v-icon v-if="speed<1000&&speed>100" color="#998a09">mdi-speedometer-medium</v-icon>
-      <v-icon v-if="speed>=1000" color="red">mdi-speedometer-slow</v-icon>
+        <v-icon v-if="speed<=100" color="green">mdi-speedometer</v-icon>
+        <v-icon v-if="speed<1000&&speed>100" color="#998a09">mdi-speedometer-medium</v-icon>
+        <v-icon v-if="speed>=1000" color="red">mdi-speedometer-slow</v-icon>
 
-      <v-tooltip bottom v-if="speed<=999">
-        <template v-slot:activator="{ on, attrs }">
-          <span class="msnum" v-bind="attrs" v-on="on">{{speed}}ms</span>
-        </template>
-        <span>网站速度</span>
-      </v-tooltip>
-      <v-tooltip bottom v-else>
-        <template v-slot:activator="{ on, attrs }">
-          <span class="msnum" v-bind="attrs" v-on="on">999+ms</span>
-        </template>
-        <span>此网站无法访问</span>
-      </v-tooltip>
+        <v-tooltip bottom v-if="speed<=999">
+          <template v-slot:activator="{ on, attrs }">
+            <span class="msnum" v-bind="attrs" v-on="on">{{speed}}ms</span>
+          </template>
+          <span>网站速度</span>
+        </v-tooltip>
+        <v-tooltip bottom v-else>
+          <template v-slot:activator="{ on, attrs }">
+            <span class="msnum" v-bind="attrs" v-on="on">999+ms</span>
+          </template>
+          <span>此网站无法访问</span>
+        </v-tooltip>
+        </v-col>
 
-      <v-btn outlined large class="jumpbtn" @click="visit" color="rgb(94, 94, 94)">
-        <v-icon>mdi-forward</v-icon>
-      </v-btn>
+        <v-col cols="3" offset="1">
+        <v-btn outlined large @click="visit" color="rgb(94, 94, 94)">
+          <v-icon>mdi-forward</v-icon>
+        </v-btn>
+        </v-col>
+      </v-row>
     </v-card-actions>
 
     <v-dialog v-model="editwindow" max-width="1000px">
@@ -144,6 +158,11 @@ export default {
     }
   },
   methods: {
+    openeditwindow(){
+      //打开编辑窗口后，先把vuex中的picAddress设置为原来的，如果图片更改，就替换为新的
+      store.commit("changePicAddress",this.picAddress)
+      this.editwindow=true
+    },
     deletecard(){
       axios.defaults.withCredentials = true;
       axios.post('http://localhost:8090/blog/delfriend',this.id)
@@ -175,6 +194,7 @@ export default {
     edit() {
       store.commit("changeId", this.id);
       let sendData={
+        picAddress:store.state.picAddress,
         id:this.id,
         siteName:this.siteName,
         siteAddress:this.siteAddress,
@@ -210,10 +230,13 @@ export default {
 .ssl {
   margin-right: 10px;
 }
-.jumpbtn {
-  margin-left: 68%;
-  position: absolute;
-  margin-bottom: 10%;
+.action{
+  padding-bottom: 0;
+  padding-top: 0;
+  padding-left: 1rem;
+}
+.cardtitle{
+  padding-bottom: 0;
 }
 .cardtext {
   color: aliceblue;
