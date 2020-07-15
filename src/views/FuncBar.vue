@@ -329,6 +329,7 @@ mounted () {
     },
     rootLogin(){
       this.rootLoginWindow=false
+      axios.defaults.withCredentials = true;
       axios.post("https://api.ri-co.cn/blog/rootlogin",{
         "mail":this.emailaddress,
         "password":this.password

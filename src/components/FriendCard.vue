@@ -201,6 +201,7 @@ export default {
         introduction:this.introduction,
         ssl:this.ssl,
       }
+      axios.defaults.withCredentials = true;
       axios.post("https://api.ri-co.cn/blog/updatefriend",sendData)
       .then(res=>{
         if(res.status==200){
