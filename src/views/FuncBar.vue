@@ -279,7 +279,7 @@ mounted () {
   methods: {
     refreshms(){
       axios.defaults.withCredentials = true;
-      axios.get("http://localhost:8090/blog/refreshms")
+      axios.get("https://api.ri-co.cn/blog/refreshms")
     },
     sendpic(e){
       //注意，我们这里没有使用form表单提交文件，所以需要用new FormData来进行提交
@@ -289,7 +289,7 @@ mounted () {
       console.log(fd.get("pic"))
       axios.defaults.withCredentials = true;
       axios.defaults.headers={'Content-Type': 'multipart/form-data'}
-      axios.post("http://localhost:8090/blog/uploadpic", fd) //url是服务器的提交地址
+      axios.post("https://api.ri-co.cn/blog/uploadpic", fd) //url是服务器的提交地址
           //成功回调
           .then(res => {
             console.log(res.data)
@@ -307,7 +307,7 @@ mounted () {
         ssl:this.ssl,
       }
       axios.defaults.withCredentials = true;
-      axios.post("http://localhost:8090/blog/addfriend",sendData)
+      axios.post("https://api.ri-co.cn/blog/addfriend",sendData)
       .then(res=>{
         if(res.status==200){
           this.result="发送成功"
@@ -318,7 +318,7 @@ mounted () {
     },
     logout(){
       axios.defaults.withCredentials = true;
-      axios.get("http://localhost:8090/blog/rootlogout")
+      axios.get("https://api.ri-co.cn/blog/rootlogout")
       .then(res=>{
         if (res.data=="done") {
           this.loginInfor="Root已注销"
@@ -329,7 +329,7 @@ mounted () {
     },
     rootLogin(){
       this.rootLoginWindow=false
-      axios.post("http://localhost:8090/blog/rootlogin",{
+      axios.post("https://api.ri-co.cn/blog/rootlogin",{
         "mail":this.emailaddress,
         "password":this.password
       }).then(res=>{

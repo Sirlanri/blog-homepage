@@ -33,7 +33,7 @@ export default {
   },
   methods:{
     getFriends(){
-      axios.get("http://localhost:8090/blog/getfriends")
+      axios.get("https://api.ri-co.cn/blog/getfriends")
         .then(res=>{
           if (res.status==200) {
             this.cardsData=res.data.list

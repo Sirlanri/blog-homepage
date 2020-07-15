@@ -1,5 +1,5 @@
 <template>
-  <v-card class="mx-auto" max-width="500">
+  <v-card class="mx-auto" max-width="500"  color="rgba(255,255,255,0.8)">
     <v-img
       height="200px"
       class="align-end img1"
@@ -165,7 +165,7 @@ export default {
     },
     deletecard(){
       axios.defaults.withCredentials = true;
-      axios.post('http://localhost:8090/blog/delfriend',this.id)
+      axios.post('https://api.ri-co.cn/blog/delfriend',this.id)
         .then(res=>{
           if (res.status==200) {
             this.result="成功删除"
@@ -182,7 +182,7 @@ export default {
       console.log(fd.get("pic"))
       axios.defaults.withCredentials = true;
       axios.defaults.headers={'Content-Type': 'multipart/form-data'}
-      axios.post("http://localhost:8090/blog/uploadpic", fd) //url是服务器的提交地址
+      axios.post("https://api.ri-co.cn/blog/uploadpic", fd) //url是服务器的提交地址
           //成功回调
           .then(res => {
             console.log(res.data)
@@ -201,7 +201,7 @@ export default {
         introduction:this.introduction,
         ssl:this.ssl,
       }
-      axios.post("http://localhost:8090/blog/updatefriend",sendData)
+      axios.post("https://api.ri-co.cn/blog/updatefriend",sendData)
       .then(res=>{
         if(res.status==200){
           this.result="发送成功"
