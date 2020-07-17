@@ -186,7 +186,7 @@
             class=" d-lg-none d-flex "
             v-model="slidemobile"
             color="rgba(0,0,0,.7)"
-
+            style="padding-top: 68px"
           >
             <v-list nav >
               <v-list-item v-for="item in items" :key="item.title" link 
