@@ -26,6 +26,10 @@
         &nbsp;
         <v-btn depressed href="https://github.com/sirlanri">GitHub</v-btn>
         <p>&nbsp;</p>
+        <br><br>
+        <h4>更新记录</h4>
+        <p>2020/7/17 修复移动端X轴滚动、完善FuncBar(左栏+顶栏)，使用Fixed，保持FuncBar的位置不变</p>
+        <p>2020/7/15 V1.0 友链功能上线，前后端分离设计，可以很方便地在网页端添加/更改</p>
       </v-card-text>
     </v-card>
 
