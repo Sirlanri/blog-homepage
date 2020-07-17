@@ -2,7 +2,7 @@
   <div class="home">
     <v-row>
         <v-col cols="12" style="padding:0" >
-            <v-app-bar color="rgba(0,0,0,0.3)" dark>
+            <v-app-bar color="rgba(0,0,0,0.3)" dark fixed >
         <v-app-bar-nav-icon class="menubtn" @click="inorout" 
         expand-on-hover style="margin-left:0"
         ></v-app-bar-nav-icon>
@@ -140,23 +140,25 @@
 
         
       </v-app-bar>
+      <div class="spacer1"></div>
         </v-col>
       
     </v-row>
     
-
+    <!-- PC端侧栏页面 -->
     <v-row justify="center" >
       <v-col cols="2" style="padding-top:0;" class="d-lg-flex d-none">
         
           <v-navigation-drawer
             dark
-            class="d-lg-flex d-none pcdraw"
-            v-model="slide"
-            
-            :mini-variant.sync="mini"
-            :expand-on-hover="slide"
+            class="pcdraw"
+            v-model="slidepc"
+            fixed
+            mini-variant.sync="true"
+            expand-on-hover
+            hide-overlay
             color="rgba(0,0,0,.5)"
-            permanent
+            style="top:64px"
           >
             <v-list nav>
               <v-list-item v-for="item in items" :key="item.title" link 
@@ -182,7 +184,7 @@
             dark
             absolute
             class=" d-lg-none d-flex "
-            v-model="slide"
+            v-model="slidemobile"
             color="rgba(0,0,0,.7)"
 
           >
@@ -232,8 +234,8 @@ export default {
       emailaddress:"",
       password:"",
       rootLoginWindow:false,
-      slide: false,
-      mini: true,
+      slidemobile: false,
+      slidepc:true,
       items: [
         { title: "首页", icon: "mdi-home", num:1},
         { title: "博客", icon: "mdi-post", num:6},
@@ -354,7 +356,8 @@ mounted () {
       this.snackbar=true
     },
     inorout() {
-      this.slide = !this.slide;
+      this.slidemobile = !this.slidemobile;
+      this.slidepc = !this.slidepc
     },
     jump(num){
       switch (num) {
@@ -414,6 +417,7 @@ mounted () {
 } 
 .home {
   background-size: 100% 100%;
+  overflow-x: hidden;
 }
 .menubtn {
   margin-right: 2rem;
@@ -430,9 +434,12 @@ mounted () {
 }
 .pcdraw{
   min-height: 100vh;
-
 }
 .v-dialog{
   overflow-y: initial;
+}
+.spacer1{
+  width: 100%;
+  height: 64px;
 }
 </style>
