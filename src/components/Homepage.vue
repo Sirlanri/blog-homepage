@@ -21,11 +21,35 @@
         <v-col cols="4" class="d-lg-flex d-none">
           <v-card outlined color="rgba(255,255,255,0.5)" raised class="card">
             <div class="cardfont subtitle-1">
+              <h3 class="headline">Whisper轻语</h3> 
+              我开发的轻社交平台 <br> 
+              这里有我的日常，我的碎碎念 <br>
+              欢迎你的加入，分享只言片语
+              
+            </div>
+            <v-card-actions>
+              <v-row>
+                <v-col cols="3"></v-col>
+                <v-col style="padding-top:0">
+                  <v-btn large color="#ffffff" block @click="goto(3)">
+                    <span class="btnrt2">Visit</span>
+                  </v-btn>
+                </v-col>
+                <v-col cols="3"></v-col>
+              </v-row>
+            </v-card-actions>
+          </v-card>
+        </v-col>
+        
+        <v-col cols="4" class="d-lg-flex d-none">
+          <v-card outlined color="rgba(255,255,255,0.5)" raised class="card">
+            <div class="cardfont subtitle-1">
               <h3 class="headline">博客</h3> 
-              <del>技术流的笔记本</del>  <del>分享生活</del> <del>干货满满</del><br> 
-              沙雕日常 √
+              使用WordPress搭建 <br>
+              会逐渐被Whisper取代 <br>
+              但也记录了很多
               <br>
-              <p>使用WordPress搭建</p>
+              
             </div>
             <v-card-actions>
               <v-row  >
@@ -64,29 +88,7 @@
           </v-card>
         </v-col>
 
-        <v-col cols="4" class="d-lg-flex d-none">
-          <v-card outlined color="rgba(255,255,255,0.5)" raised class="card">
-            <div class="cardfont subtitle-1">
-              <h3 class="headline">Twitter</h3> 
-              曾经的回忆 <br> 
-              认识了很多朋友
-              
-              <br>
-              <p>于2019年离开</p>
-            </div>
-            <v-card-actions>
-              <v-row>
-                <v-col cols="3"></v-col>
-                <v-col style="padding-top:0">
-                  <v-btn large color="#ffffff" block disabled>
-                    <span class="btnrt2">Visit</span>
-                  </v-btn>
-                </v-col>
-                <v-col cols="3"></v-col>
-              </v-row>
-            </v-card-actions>
-          </v-card>
-        </v-col>
+        
 
         <!-- 手机端 -->
         <v-col class="d-flex-inline d-lg-none">
@@ -180,6 +182,9 @@ export default {
         case 2:
           window.open('https://github.com/Sirlanri')
           break;
+        case 3:
+          window.open('https://whisper.ri-co.cn')
+          break
         default:
           break;
       }

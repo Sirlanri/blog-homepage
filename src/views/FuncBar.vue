@@ -19,7 +19,7 @@
 
         
         <v-btn text large @click="jump(2)" class="d-lg-flex d-none">
-          <span class="btnrt">片语</span>
+          <span class="btnrt">轻语</span>
         </v-btn>
         
         <v-btn text large @click="jump(9)" class="d-lg-flex d-none">
@@ -238,10 +238,10 @@ export default {
       slidepc:true,
       items: [
         { title: "首页", icon: "mdi-home", num:1},
+        { title: "轻语", icon: "mdi-forum", num:2},
         { title: "博客", icon: "mdi-post", num:6},
         { title: "云盘", icon: "mdi-cloud-outline", num:7 },
         { title: "邮箱", icon: "mdi-email-variant", num:8 },
-        { title: "片语", icon: "mdi-forum", num:2},
         //{ title: "开发", icon: "mdi-xml", num:3},
         { title: "友链", icon: "mdi-link-variant-plus", num:4},
         { title: "关于", icon: "mdi-information-outline", num:5},
@@ -365,7 +365,7 @@ mounted () {
           this.$router.push({path:'/'})
           break;
         case 2:
-          this.$router.push({path:'/sentences'})
+          window.open('https://whisper.ri-co.cn/')
           break;
         case 3:
           this.$router.push({path:'/dev'})
@@ -389,6 +389,7 @@ mounted () {
         case 9:
           window.open('https://cloud.ri-co.cn/s/2kp9zw58Gi9PAR4')
           break;
+        
       
         default:
           break;
