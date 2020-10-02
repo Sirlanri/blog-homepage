@@ -1,2 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d237b52"],{fbee:function(e,n,t){"use strict";t.r(n);var u=function(){var e=this,n=e.$createElement,t=e._self._c||n;return t("div",[e._v(" 开发的项目，版块还在开发中... ")])},c=[],l={},r=l,s=t("2877"),a=Object(s["a"])(r,u,c,!1,null,null,null);n["default"]=a.exports}}]);
-//# sourceMappingURL=chunk-2d237b52.1d1e4826.js.map
