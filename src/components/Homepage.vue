@@ -49,7 +49,6 @@
               会逐渐被Whisper取代 <br>
               但也记录了很多
               <br>
-              
             </div>
             <v-card-actions>
               <v-row  >
@@ -92,14 +91,34 @@
 
         <!-- 手机端 -->
         <v-col class="d-flex-inline d-lg-none">
-
-          <v-card outlined color="rgba(255,255,255,0.5)" raised  class="card-sm">
+          <v-card outlined color="rgba(255,255,255,0.5)" raised class="card-sm-top">
             <div class="cardfont">
-              <h3>博客</h3> 
-              <del>技术流的笔记本</del>  <del>分享生活</del> <del>干货满满</del><br> 
-              沙雕日常 √
+              <h3 class="headline">Whisper轻语</h3> 
+              我开发的轻社交平台 <br> 
+              这里有我的日常，我的碎碎念 <br>
+              欢迎你的加入，分享只言片语
+            </div>
+            <v-card-actions>
+              <v-row>
+                <v-col cols="3"></v-col>
+                <v-col style="padding-top:0">
+                  <v-btn large color="#ffffff" block @click="goto(3)">
+                    <span class="btnrt2">Visit</span>
+                  </v-btn>
+                </v-col>
+                <v-col cols="3"></v-col>
+              </v-row>
+            </v-card-actions>
+          </v-card>
+        
+
+          <v-card outlined color="rgba(255,255,255,0.5)" raised class="card-sm">
+            <div class="cardfont">
+              <h3 class="headline">博客</h3> 
+              使用WordPress搭建 <br>
+              会逐渐被Whisper取代 <br>
+              但也记录了很多
               <br>
-              <p>使用WordPress搭建</p>
             </div>
             <v-card-actions>
               <v-row  >
@@ -116,7 +135,7 @@
 
           <v-card outlined color="rgba(255,255,255,0.5)" raised class="card-sm">
             <div class="cardfont">
-              <h3>GitHub</h3> 
+              <h3 class="headline">GitHub</h3> 
               <del>全球最大的同性交友网站</del><br> 
               注册于2017年，但最近才写项目
               <br>
@@ -135,27 +154,6 @@
             </v-card-actions>
           </v-card>
 
-          <v-card outlined color="rgba(255,255,255,0.5)" raised class="card-sm">
-            <div class="cardfont">
-              <h3>Twitter</h3> 
-              曾经的回忆 <br> 
-              认识了很多朋友
-              
-              <br>
-              <p>于2019年离开</p>
-            </div>
-            <v-card-actions>
-              <v-row>
-                <v-col cols="3"></v-col>
-                <v-col style="padding-top:0">
-                  <v-btn large color="#ffffff" block disabled>
-                    <span class="btnrt2">Visit</span>
-                  </v-btn>
-                </v-col>
-                <v-col cols="3"></v-col>
-              </v-row>
-            </v-card-actions>
-          </v-card>
 
         </v-col>
         
@@ -229,6 +227,11 @@ export default {
 }
 .card-sm{
   margin-top: 2rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+.card-sm-top{
+  margin-top: 0rem;
   margin-left: 1rem;
   margin-right: 1rem;
 }
